@@ -2,10 +2,13 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
+
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class CourseDeatailsPage extends PageBase{
+@Getter
+public class CourseDeatailsPage extends HomePage{
     private ElementsCollection courseDetails = $$x("//div[@class='MuiGrid-root MuiGrid-container css-1cn3yto']");
     private SelenideElement courseMaterialSection = $x("//div[@id='course-material-list']//section[1]");
     private SelenideElement searchBox = $x("//input[@id=':r0:']");
@@ -17,7 +20,7 @@ public class CourseDeatailsPage extends PageBase{
 
     public void uploadCourseMaterial(String courseName){
         documentNameInput.sendKeys(courseName);
-        uploadDocumentField.click(); //как добавить файл
+        uploadDocumentField.sendKeys("files/qa.txt");
         uploadButton.click();
 
     }

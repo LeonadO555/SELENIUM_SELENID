@@ -1,12 +1,26 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 
+import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class StudentDirectoryPage extends PageBase{
-    private SelenideElement header = $x("//div[@class='sw-font-family-default sw-letter-spacing-wide sw-line-height-loose']");
-    private SelenideElement searchBox = $x("//input[@id=':r0:']");
+@Getter
+public class StudentDirectoryPage extends HomePage{
+    public SelenideElement header = $x("//div[@class='sw-font-family-default sw-letter-spacing-wide sw-line-height-loose']");
+    public SelenideElement searchBox = $x("//input[@id=':r0:']");
+    public ElementsCollection studentList = $$x("//div[@class='horizontal-list-item']//h3");
+    public SelenideElement viewProfileButton = $x("//a[normalize-space()='View profile']");
 
+    public void searchStudentByName(String userName){
+        searchBox.shouldBe(Condition.visible);
+        searchBox.sendKeys(userName);
+        studentList.findBy(Condition.exactText(userName)).click();
+        viewProfileButton.click();
+
+
+    }
 }

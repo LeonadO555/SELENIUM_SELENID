@@ -1,11 +1,12 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class RegistrationPage extends PageBase{
+@Getter
+public class RegistrationPage extends LoginPage{
     private SelenideElement singUpTable = $x("//div[@id='signup']");
     private SelenideElement roleOption = $x("//div[@class='filter-option-inner-inner']");
     private SelenideElement teacherRole = $x("//span[normalize-space()='teacher']");
@@ -17,20 +18,21 @@ public class RegistrationPage extends PageBase{
     private SelenideElement singUpButton = $x("//a[@id='sw-sign-up-submit-btn']");
     private SelenideElement signInButton = $x("//a[@id='sw-go-to-sign-in-btn']");
 
-    public void TeacherRegistration (String userEmail, String userPassword){
-        roleOption.click();
-        teacherRole.click();
-        emailInput.sendKeys(userEmail);
-        passwordInput.sendKeys(userPassword);
+    public void selectRole(String role) {
+        selectOption(role,roleOption);
+    }
+    public void TeacherRegistration (String teacherEmail, String teacherPassword){
+        selectRole("teacher");
+        emailInput.sendKeys(teacherEmail);
+        passwordInput.sendKeys(teacherPassword);
         checkBox.click();
         singUpButton.click();
     }
 
-    public void StudentRegistration (String userEmail, String userPassword){
-        roleOption.click();
-        studentRole.click();
-        emailInput.sendKeys(userEmail);
-        passwordInput.sendKeys(userPassword);
+    public void StudentRegistration (String studentEmail, String studentPassword){
+        selectRole("student");
+        emailInput.sendKeys(studentEmail);
+        passwordInput.sendKeys(studentPassword);
         checkBox.click();
         singUpButton.click();
     }
