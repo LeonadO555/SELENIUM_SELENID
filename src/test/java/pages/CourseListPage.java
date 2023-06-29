@@ -17,13 +17,10 @@ public class CourseListPage extends HomePage{
 
     public List<String>getTitles(){return courseTitles.texts();}
 
-    public void searchCourseByCourseName(String courseName){
+    public void searchCourseByName(String name){
         searchBox.shouldBe(Condition.visible);
-        searchBox.sendKeys(courseName);
+        searchBox.sendKeys(name);
     }
 
-    public void searchCourseByTeacherName(String teacherName){
-        searchBox.shouldBe(Condition.visible);
-        searchBox.sendKeys(teacherName);
-    }
+
 }
