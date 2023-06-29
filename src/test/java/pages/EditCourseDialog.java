@@ -7,7 +7,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
-public class EditCoursePage extends HomePage{
+public class EditCourseDialog extends HomePage{
     public SelenideElement editTitle = $x("//h2[@id='course-details-modal-rec2dBNr4rcB2StDM-title']");
     public SelenideElement courseNameInput = $x("//input[@name='Course Name']");
     public SelenideElement descriptionInput = $x("//div[@class='ProseMirror toastui-editor-contents']");
