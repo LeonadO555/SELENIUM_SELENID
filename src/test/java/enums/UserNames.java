@@ -7,7 +7,9 @@ import lombok.Getter;
 @Getter
 public enum UserNames {
     DIANA_MALIKOVA("Diana Malikova"),
-    ANNA_BELOVA("Anna Belova");
+    ANNA_BELOVA("Anna Belova"),
+    BORIS_RISKER("Boris Risker"),
+    KRISTINA_MUNTIAN("Kristina Muntian");
 
     public final String value;
 
