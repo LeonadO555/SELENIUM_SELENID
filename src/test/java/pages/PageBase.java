@@ -15,8 +15,8 @@ public class PageBase {
     private ElementsCollection socialLinks = $$x("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 links css-waew46']//a"); //общий локатор для 3х элементов (ссылок)
 
     String defaultPassword = "123456";
-    public void selectRole(String role) {
-        selectOption(role,roleDropdown);
+    public void selectRole(String role,  WebElement selectElement) {
+        selectOption(role,selectElement);
     }
 
     public void selectOption(String optionName, WebElement selectElement) {

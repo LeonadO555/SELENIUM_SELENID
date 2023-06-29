@@ -25,14 +25,10 @@ public class MyProfilePage extends HomePage{
     public SelenideElement newPasswordInput = $x("//input[@id='sw-new-password-input']");
     public SelenideElement changePasswordButton = $x("//a[@id='sw-change-password-btn']");
 
-    public void selectRole(String role) {
-        selectOption(role,roleDropdown);
-    }
-
 
     public void updateUserProfile(String userName, String userEmail, String description, String externalProfileLink, String majorIn, String role ){
         tellMeAboutYourselfTitle.shouldBe(Condition.visible);
-        selectRole(role);
+        selectRole(role,roleDropdown);
         fullNameInput.sendKeys(userName);
         emailInput.sendKeys(userEmail);
         aboutMeInput.sendKeys(description);
