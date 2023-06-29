@@ -3,6 +3,8 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
@@ -11,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class HomePage extends PageBase{
     public SelenideElement courseList = $x("//*[@class='list-container']");
     public ElementsCollection courseTitles = $$x("//div[@class='MuiBox-root css-0']//h3");
-    public SelenideElement goToButton = $x("//*//a[@type='button']");
+    public SelenideElement goToButton = $x("//*[@data-item-index='0']//a");
     public SelenideElement teacherSpotlightNonLoggedIn = $x("//*[@id='teacher-spotlight-non-logged-in']");
     public SelenideElement aboutUsButton = $x("//span[normalize-space()='About Us']");
     public SelenideElement coursesButton = $x("//span[normalize-space()='Courses']");
@@ -27,5 +29,13 @@ public class HomePage extends PageBase{
     public SelenideElement avatarButton = $x("//span[normalize-space()='Student Directory']");
     public SelenideElement myProfileButton = $x("//span[normalize-space()='My Profile']");
     public SelenideElement singOutButton = $x("//span[normalize-space()='Sign Out']");
+
+
+    public WebElement makeBlockLocator(String index){
+        return $x("//*[@data-item-index='"+index+"']");
+    }
+    public void clickOnGoToButton(String index){
+        makeBlockLocator(index).findElement(By.xpath("//a[@href='/sign-up?recordId=rec0dPvLYTpfd1jvd']")).click();
+    }
 
 }
