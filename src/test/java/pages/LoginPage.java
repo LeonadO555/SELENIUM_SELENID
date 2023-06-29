@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import enums.UserEmails;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -13,9 +14,9 @@ public class LoginPage extends PageBase{
     private SelenideElement forgotPasswordButton = $x("//a[normalize-space()='Forgot password']");
     private SelenideElement signUpButton = $x("//a[@id='sw-go-to-sign-up-btn']");
 
-    public void login (String userEmail, String userPassword){
-        emailInput.sendKeys(userEmail);
-        passwordInput.sendKeys(userPassword);
+    public void login (UserEmails userEmails){
+        emailInput.sendKeys(userEmails.getValue());
+        passwordInput.sendKeys(defaultPassword);
         signInButton.click();
     }
 }

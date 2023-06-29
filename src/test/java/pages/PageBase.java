@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import enums.UserEmails;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -22,11 +23,6 @@ public class PageBase {
     public void selectOption(String optionName, WebElement selectElement) {
         Select select = new Select(selectElement);
         select.selectByVisibleText(optionName);
-    }
-
-    public void getLogin(String login, String password) {
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(login, password);
     }
 
 

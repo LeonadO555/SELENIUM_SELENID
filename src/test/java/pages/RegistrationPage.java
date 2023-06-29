@@ -1,6 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import enums.Roles;
+import enums.UserEmails;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -21,9 +23,9 @@ public class RegistrationPage extends LoginPage{
     public void selectRole(String role) {
         selectOption(role,roleOption);
     }
-    public void userRegistration (String email,  String role){
-        selectRole(role);
-        emailInput.sendKeys(email);
+    public void userRegistration (UserEmails userEmail, Roles role){
+        selectRole(role.getValue());
+        emailInput.sendKeys(userEmail.getValue());
         passwordInput.sendKeys(getDefaultPassword());
         checkBox.click();
         singUpButton.click();
