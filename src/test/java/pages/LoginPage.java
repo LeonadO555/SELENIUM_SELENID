@@ -34,14 +34,21 @@ public class LoginPage extends PageBase{
     public void waitForLoading(){
         wait = new Wait(driver);
         wait.forVisibility(signInForm);
+        wait.forVisibility(emailField);
+        wait.forVisibility(passwordField);
+        wait.forVisibility(signInButton);
+        wait.forVisibility(forgotPasswordButton);
+        wait.forVisibility(signUpButton);
+        wait.forVisibility(homePageButton);
+
     }
 
-    public void fillEmailField(String text){
+    public void fillEmailInput(String text){
         emailField.click();
         emailField.sendKeys(text);
     }
 
-    public void fillPasswordField(String text){
+    public void fillPasswordInput(String text){
         passwordField.click();
         passwordField.sendKeys(text);
     }
@@ -57,5 +64,6 @@ public class LoginPage extends PageBase{
     public void clickOnForgotPasswordButton(){
         forgotPasswordButton.click();
     }
+
 
 }
