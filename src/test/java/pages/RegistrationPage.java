@@ -20,11 +20,11 @@ public class RegistrationPage extends LoginPage{
     private SelenideElement singUpButton = $x("//a[@id='sw-sign-up-submit-btn']");
     private SelenideElement signInButton = $x("//a[@id='sw-go-to-sign-in-btn']");
 
-    public void selectRole(String role) {
-        selectOption(role,roleOption);
+    public void selectRole(Roles role) {
+        selectOption(role.getValue(),roleOption);
     }
     public void userRegistration (UserEmails userEmail, Roles role){
-        selectRole(role.getValue());
+        selectRole(role);
         emailInput.sendKeys(userEmail.getValue());
         passwordInput.sendKeys(getDefaultPassword());
         checkBox.click();
