@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import enums.UserNames;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$$x;
@@ -15,12 +16,14 @@ public class StudentDirectoryPage extends HomePage{
     public ElementsCollection studentList = $$x("//div[@class='horizontal-list-item']//h3");
     public SelenideElement viewProfileButton = $x("//a[normalize-space()='View profile']");
 
-    public void searchStudentByName(String userName){
+
+    public void searchStudentByName(UserNames userName){
         searchBox.shouldBe(Condition.visible);
-        searchBox.sendKeys(userName);
-        studentList.findBy(Condition.exactText(userName)).click();
+        searchBox.sendKeys(userName.getValue());
+    }
+
+    public void openViewProfile(UserNames userName){
+        studentList.findBy(Condition.exactText(userName.getValue())).click();
         viewProfileButton.click();
-
-
     }
 }
