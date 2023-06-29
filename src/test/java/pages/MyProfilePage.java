@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.google.common.base.Enums;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -27,25 +28,15 @@ public class MyProfilePage extends HomePage{
     public void selectRole(String role) {
         selectOption(role,roleDropdown);
     }
-    public void updateStudentProfile(String studentName, String studentEmail, String description, String externalProfileLink, String majorIn ){
-        tellMeAboutYourselfTitle.shouldBe(Condition.visible);
-        selectRole("student");
-        fullNameInput.sendKeys(studentName);
-        emailInput.sendKeys(studentEmail);
-        aboutMeInput.sendKeys(description);
-        avatarImageInput.sendKeys("images/our-students.jpg");
-        externalProfileLinkInput.sendKeys(externalProfileLink);
-        majorInput.sendKeys(majorIn);
-        updateProfileButton.click();
-    }
 
-    public void updateTeacherProfile(String teacherName, String teacherEmail, String description, String externalProfileLink, String majorIn ){
+
+    public void updateUserProfile(String userName, String userEmail, String description, String externalProfileLink, String majorIn, String role ){
         tellMeAboutYourselfTitle.shouldBe(Condition.visible);
-        selectRole("teacher");
-        fullNameInput.sendKeys(teacherName);
-        emailInput.sendKeys(teacherEmail);
+        selectRole(role);
+        fullNameInput.sendKeys(userName);
+        emailInput.sendKeys(userEmail);
         aboutMeInput.sendKeys(description);
-        avatarImageInput.sendKeys("images/teacher.jpg");
+       // avatarImageInput.sendKeys("images/teacher.jpg");
         externalProfileLinkInput.sendKeys(externalProfileLink);
         majorInput.sendKeys(majorIn);
         updateProfileButton.click();

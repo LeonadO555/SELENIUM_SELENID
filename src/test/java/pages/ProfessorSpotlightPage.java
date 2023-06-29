@@ -22,9 +22,12 @@ public class ProfessorSpotlightPage extends HomePage{
     public void searchProfessorByName(String userName){
         searchBox.shouldBe(Condition.visible);
         searchBox.sendKeys(userName);
+
+    }
+
+    public void openViewProfile(String userName){
         professorList.findBy(Condition.exactText(userName)).click();
         viewProfileButton.click();
-
     }
 
 

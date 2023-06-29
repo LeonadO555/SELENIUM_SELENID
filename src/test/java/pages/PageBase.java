@@ -14,6 +14,11 @@ public class PageBase {
     private SelenideElement menuBlock = $x("//div[@id='home-header-logged-in-teachers']");
     private ElementsCollection socialLinks = $$x("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 links css-waew46']//a"); //общий локатор для 3х элементов (ссылок)
 
+    String defaultPassword = "123456";
+    public void selectRole(String role) {
+        selectOption(role,roleDropdown);
+    }
+
     public void selectOption(String optionName, WebElement selectElement) {
         Select select = new Select(selectElement);
         select.selectByVisibleText(optionName);

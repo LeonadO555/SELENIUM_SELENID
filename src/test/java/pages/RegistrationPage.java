@@ -21,18 +21,10 @@ public class RegistrationPage extends LoginPage{
     public void selectRole(String role) {
         selectOption(role,roleOption);
     }
-    public void TeacherRegistration (String teacherEmail, String teacherPassword){
-        selectRole("teacher");
-        emailInput.sendKeys(teacherEmail);
-        passwordInput.sendKeys(teacherPassword);
-        checkBox.click();
-        singUpButton.click();
-    }
-
-    public void StudentRegistration (String studentEmail, String studentPassword){
-        selectRole("student");
-        emailInput.sendKeys(studentEmail);
-        passwordInput.sendKeys(studentPassword);
+    public void userRegistration (String email,  String role){
+        selectRole(role);
+        emailInput.sendKeys(email);
+        passwordInput.sendKeys(getDefaultPassword());
         checkBox.click();
         singUpButton.click();
     }

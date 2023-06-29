@@ -7,7 +7,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
-public class AddNewCoursePage extends HomePage{
+public class AddNewCourseDialog extends HomePage{
     private SelenideElement addNewCourseTable = $x("//div[@class='MuiGrid-root MuiGrid-container css-t7lb4m']");
     private SelenideElement courseNameInput = $x("//input[@id='course-documents-form-CourseName--1078269106']");
     private SelenideElement facultyDropdown = $x("//div[@id='course-documents-form-Faculty-1389247778']");
