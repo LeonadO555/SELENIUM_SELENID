@@ -59,18 +59,7 @@ public class HomePage extends PageBase{
     public void clickSingInOnHomePageButton(){
         click(singInOnHomePageButton);
     }
-    public void clickFirstRowAboutUsInfo(){
-        click(firstRowAboutUsInfo);
-    }
-    public void clickSecondRowAboutUsInfo(){
-        click(secondRowAboutUsInfo);
-    }
-    public void clickThirdRowAboutUsInfo(){
-        click(thirdRowAboutUsInfo);
-    }
-    public void clickFourthRowAboutUsInfo(){
-        click(fourthRowAboutUsInfo);
-    }
+
     public void clickSecondCourseOnHomePageGoToButton(){
         click(firstCourseOnHomePageGoToButton);
     }

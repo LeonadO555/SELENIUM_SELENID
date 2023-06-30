@@ -1,6 +1,5 @@
 package e2e.pages;
 
-import com.google.inject.spi.StaticInjectionRequest;
 import e2e.wait.Wait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,8 +11,8 @@ public class EditRecordCourse extends PageBase{
     }
     Wait wait;
 
-    @FindBy(xpath = "(//div[contains(@role,'dialog')])[1]")
-    protected WebElement editRecordText;
+    @FindBy(xpath = "'(//div[contains(@ROLE,'dialog')])[1]' remove [1]")
+    protected WebElement editDialog;
     @FindBy(xpath = "//input[@name='Course Name']")
     protected WebElement courseNameField;
     @FindBy(xpath = "//div[@class='toastui-editor ww-mode']")
@@ -37,7 +36,7 @@ public class EditRecordCourse extends PageBase{
 
     public void waitForLoading(){
         wait = new Wait(driver);
-        wait.forVisibility(editRecordText);
+        wait.forVisibility(editDialog);
     }
     public void imputeFillCourseName(String courseName){
         courseNameField.sendKeys(courseName);

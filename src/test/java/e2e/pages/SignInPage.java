@@ -28,10 +28,10 @@ public class SignInPage extends PageBase{
         wait = new Wait(driver);
         wait.forVisibility(emailField);
     }
-    public void fieldFillEmail(String email){
+    public void imputeFillEmail(String email){
         emailField.sendKeys(email);
     }
-    public void fieldFillPassword(String password){
+    public void imputeFillPassword(String password){
         passwordField.sendKeys(password);
     }
     public void clickSignInButton(){

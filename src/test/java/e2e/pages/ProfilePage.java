@@ -39,34 +39,34 @@ public class ProfilePage extends PageBase{
         wait = new Wait(driver);
         wait.forVisibility(choseRoleList);
     }
-    public void choseRoleRow(String nameRole){
+    public void selectRole(String nameRole){
         selectOption(nameRole, choseRoleList);
     }
-    public void fieldFillName(String nameStudent){
+    public void imputeFillName(String nameStudent){
         NameField.sendKeys(nameStudent);
     }
-    public void fieldFillEmail(String email){
+    public void imputeFillEmail(String email){
         EmailField.sendKeys(email);
     }
-    public void fieldFillAboutUs(String aboutUs){
+    public void imputeFillAboutUs(String aboutUs){
         AboutUsField.sendKeys(aboutUs);
     }
-    public void fieldFillStudentPhoto(String photoStudentLogo){
+    public void imputeFillStudentPhoto(String photoStudentLogo){
         studentPhoto.sendKeys(photoStudentLogo);
     }
-    public void fieldFillLinkToWebStudent(String webLink){
+    public void imputeFillLinkToWebStudent(String webLink){
         linkToWebStudentField.sendKeys(webLink);
     }
-    public void fieldFillMajor(String major){
+    public void imputeFillMajor(String major){
         majorField.sendKeys(major);
     }
     public void clickUpdateProfileButton(){
         click(updateProfileButton);
     }
-    public void fieldFillOldPassword(String oldPassword){
+    public void imputeFillOldPassword(String oldPassword){
         oldPasswordField.sendKeys(oldPassword);
     }
-    public void fieldFillNewPassword(String newPassword){
+    public void imputeFillNewPassword(String newPassword){
         newPasswordField.sendKeys(newPassword);
     }
     public void clickChangePasswordButton(){

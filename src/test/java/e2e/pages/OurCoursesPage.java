@@ -1,6 +1,7 @@
 package e2e.pages;
 
 import e2e.wait.Wait;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,18 +35,21 @@ public class OurCoursesPage extends PageBase{
         wait = new Wait(driver);
         wait.forVisibility(listAllCourses);
     }
-    public void clickBusinessSchoolTagListSort(){
-        click(businessSchoolTagListSort);
+    public void sortByFaculty(String courseName){
+        driver.findElement(By.xpath("//a[contains(text(),'"+courseName+"')]")).click();
     }
-    public void clickEngineeringTagLIstSort(){
-        click(engineeringTagLIstSort);
-    }
-    public void clickSciencesTagLIstSort(){
-        click(sciencesTagLIstSort);
-    }
-    public void clickMedicineTagLIstSort(){
-        click(medicineTagLIstSort);
-    }
+//    public void clickBusinessSchoolTagListSort(){
+//        click(businessSchoolTagListSort);
+//    }
+//    public void clickEngineeringTagLIstSort(){
+//        click(engineeringTagLIstSort);
+//    }
+//    public void clickSciencesTagLIstSort(){
+//        click(sciencesTagLIstSort);
+//    }
+//    public void clickMedicineTagLIstSort(){
+//        click(medicineTagLIstSort);
+//    }
     public void clickLawTagLIstSort(){
         click(lawTagLIstSort);
     }

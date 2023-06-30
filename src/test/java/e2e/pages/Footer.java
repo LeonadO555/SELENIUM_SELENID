@@ -1,6 +1,8 @@
 package e2e.pages;
 
 import e2e.wait.Wait;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +29,13 @@ public class Footer extends PageBase{
 
     public void waitForLoading(){
         wait = new Wait(driver);
-        wait.forVisibility(linkOnKovaliItWeb);
+            try{
+                wait.forVisibility(linkOnKovaliItWeb);
+            }catch (ElementClickInterceptedException e) {
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("window.scrollBy(0,500)", "");
+                click(linkOnKovaliItWeb);
+            }
     }
     public void clickLinkOnKoyaliItWeb(){
         click(linkOnKovaliItWeb);

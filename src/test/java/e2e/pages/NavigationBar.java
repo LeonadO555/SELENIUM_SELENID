@@ -47,6 +47,11 @@ public class NavigationBar extends PageBase{
     @FindBy(xpath = "//span[normalize-space()='Add course']")
     protected WebElement professorUserAddCourseButton;
 
+    public void waitForLoading(){
+        wait = new Wait(driver);
+        wait.forVisibility(toHomePageLogoNavBarButton);
+    }
+
     public void clickToHomePageLogoNavBarButton(){
         click(toHomePageLogoNavBarButton);
     }
@@ -84,10 +89,7 @@ public class NavigationBar extends PageBase{
         click(professorUserAddCourseButton);
     }
 
-    public void waitForLoading(){
-        wait = new Wait(driver);
-        wait.forVisibility(toHomePageLogoNavBarButton);
-    }
+
 
 
 }
