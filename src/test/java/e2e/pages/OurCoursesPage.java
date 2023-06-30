@@ -11,15 +11,6 @@ public class OurCoursesPage extends PageBase{
         super(driver);
     }
     Wait wait;
-
-    @FindBy(xpath = "(//div[contains(@role,'button')])[6]")
-    protected WebElement businessSchoolTagListSort;
-    @FindBy(xpath = "(//div[contains(@role,'button')])[7]")
-    protected WebElement engineeringTagLIstSort;
-    @FindBy(xpath = "(//div[contains(@role,'button')])[8]")
-    protected WebElement sciencesTagLIstSort;
-    @FindBy(xpath = "(//div[contains(@role,'button')])[]")
-    protected WebElement medicineTagLIstSort;
     @FindBy(xpath = "(//div[contains(@role,'button')])[10]")
     protected WebElement lawTagLIstSort;
     @FindBy(xpath = "(//input[@id=':r0:'])[1]")
@@ -38,18 +29,6 @@ public class OurCoursesPage extends PageBase{
     public void sortByFaculty(String courseName){
         driver.findElement(By.xpath("//a[contains(text(),'"+courseName+"')]")).click();
     }
-//    public void clickBusinessSchoolTagListSort(){
-//        click(businessSchoolTagListSort);
-//    }
-//    public void clickEngineeringTagLIstSort(){
-//        click(engineeringTagLIstSort);
-//    }
-//    public void clickSciencesTagLIstSort(){
-//        click(sciencesTagLIstSort);
-//    }
-//    public void clickMedicineTagLIstSort(){
-//        click(medicineTagLIstSort);
-//    }
     public void clickLawTagLIstSort(){
         click(lawTagLIstSort);
     }
