@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.nio.file.WatchEvent;
 
-public class CourseDetailsPage extends NavigationBar{
+public class CourseDetailsPage extends PageBase{
     public CourseDetailsPage(WebDriver driver) {
         super(driver);
     }

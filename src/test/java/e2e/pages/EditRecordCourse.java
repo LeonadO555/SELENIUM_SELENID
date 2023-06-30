@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EditRecordCourse extends NavigationBar{
+public class EditRecordCourse extends PageBase{
     public EditRecordCourse(WebDriver driver) {
         super(driver);
     }
@@ -30,7 +30,7 @@ public class EditRecordCourse extends NavigationBar{
     protected WebElement startData;
     @FindBy(xpath = "//input[@name='End date']")
     protected WebElement endData;
-    @FindBy(xpath = "//div[contains(@aria-hidden,'false')]//div//button[contains(@aria-label,'Close this dialog window')]")
+    @FindBy(xpath = "//*[@id='course-list-modal-rec0dPvLYTpfd1jvd']//footer/button[1]")
     protected WebElement cancelButton;
     @FindBy(xpath = "//div[contains(@category,'List Details')]//footer//button[1]")
     protected WebElement saveButton;
@@ -39,28 +39,28 @@ public class EditRecordCourse extends NavigationBar{
         wait = new Wait(driver);
         wait.forVisibility(editRecordText);
     }
-    public void fieldFillCourseName(String courseName){
+    public void imputeFillCourseName(String courseName){
         courseNameField.sendKeys(courseName);
     }
-    public void fieldFillDescription(String description){
+    public void imputeFillDescription(String description){
         descriptionField.sendKeys(description);
     }
     public void choseFaculty(String faculty){
         selectOption(faculty, facultyDropDown);
     }
-    public void fieldTeacher(String nameTeacher){
+    public void imputeFillTeacher(String nameTeacher){
         teacherField.sendKeys(nameTeacher);
     }
-    public void fieldDocumentName(String fileDocuments){
+    public void imputeFillDocumentName(String fileDocuments){
         documentNameField.sendKeys(fileDocuments);
     }
-    public void fieldUploadFile(String fileUpload){
+    public void imputeFillUploadFile(String fileUpload){
         uploadFileField.sendKeys(fileUpload);
     }
-    public void fieldStartData(String dataStart){
+    public void imputeFillStartData(String dataStart){
         startData.sendKeys(dataStart);
     }
-    public void fieldEndData(String dataEnd){
+    public void imputeFillEndData(String dataEnd){
         endData.sendKeys(dataEnd);
     }
     public void clickCancelButton(){

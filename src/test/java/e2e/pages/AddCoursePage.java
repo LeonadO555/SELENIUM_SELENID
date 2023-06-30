@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AddCoursePage extends NavigationBar{
+public class AddCoursePage extends PageBase{
     public AddCoursePage(WebDriver driver) {
         super(driver);
     }
@@ -36,22 +36,22 @@ public class AddCoursePage extends NavigationBar{
         wait = new Wait(driver);
         wait.forVisibility(addButton);
     }
-    public void fieldFillCourseName(String courseName){
+    public void imputeFillCourseName(String courseName){
         courseNameField.sendKeys(courseName);
     }
     public void choseFacultyRow(String faculty){
         selectOption(faculty, facultyRow);
     }
-    public void fieldFillCourseDescription(String descriptionInfo){
+    public void imputeFillCourseDescription(String descriptionInfo){
         courseDescriptionField.sendKeys(descriptionInfo);
     }
-    public void fieldFillCoverPhoto(String photo){
+    public void imputeFillCoverPhoto(String photo){
         coverPhoto.sendKeys(photo);
     }
-    public void fieldFillCourseStartData(String startData){
+    public void imputeFillCourseStartData(String startData){
         courseStartData.sendKeys(startData);
     }
-    public void fieldFillCourseEndData(String endData){
+    public void imputeFillCourseEndData(String endData){
         courseEndDate.sendKeys(endData);
     }
     public void clickAddButton(){

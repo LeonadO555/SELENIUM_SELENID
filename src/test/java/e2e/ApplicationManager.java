@@ -23,8 +23,6 @@ public class ApplicationManager {
 
         return new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), options);
     }
-
-
     protected void init(boolean useRemoteDriver) throws MalformedURLException {
         if (useRemoteDriver == true) {
             driver = remoteDriverSelenoid();
@@ -35,10 +33,8 @@ public class ApplicationManager {
             System.out.println("Using local FirefoxDriver");
         }
         driver.get("https://jere237.softr.app/");
-        driver.manage().window().maximize();
-        //driver.manage().window().setSize(new Dimension(1920,1780));
+        driver.manage().window().setSize(new Dimension(1920,1080));
     }
-
     protected void stop() {
         driver.quit();
     }

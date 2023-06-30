@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class HomePage extends NavigationBar{
+public class HomePage extends PageBase{
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -21,7 +21,7 @@ public class HomePage extends NavigationBar{
     @FindBy(xpath = "//a[contains(text(),'Sign in')]")
     protected WebElement singInOnHomePageButton;
 
-    @FindBy(xpath = "//body/div/section[@id='about-us']/div/div/div/div[1]")
+    @FindBy(xpath = "//*[@class='col-md-6 text-center text-lg-left pt-5 pt-lg-0']")
     protected WebElement aboutUsInfoOnHomePageRow;
 
     @FindBy(xpath = "//div[@class='row']//div[1]//div[1]")
@@ -33,44 +33,24 @@ public class HomePage extends NavigationBar{
     @FindBy(xpath = "(//div[contains(@class,'s-feature-box')])[3]")
     protected WebElement fourthRowAboutUsInfo;
 
-    @FindBy(xpath = "//p[contains(text(),'Check out our courses \uD83D\uDC47')]")
-    protected WebElement coursesCheckOutOurCoursesOnHomePageInfo;
-    @FindBy(xpath = "(//div)[43]")
-    protected WebElement firstCourseOnHomePageInfo;
-    @FindBy(xpath = "(//div)[62]")
-    protected WebElement secondCourseOnHomePageInfo;
-    @FindBy(xpath = "(//div)[85]")
-    protected WebElement thirdCourseOnHomePageInfo;
-    @FindBy(xpath = "(//span)[9]")
+    @FindBy(xpath = "//*[@data-item-index='0']//a")
     protected WebElement firstCourseOnHomePageGoToButton;
-    @FindBy(xpath = "(//span)[11]")
+    @FindBy(xpath = "//*[@data-item-index='1']//a")
     protected WebElement secondCourseOnHomePageGoToButton;
-    @FindBy(xpath = "(//span)[13]")
+    @FindBy(xpath = "//*[@data-item-index='2']//a")
     protected WebElement thirdCourseOnHomePageGoToButton;
 
     @FindBy(xpath = "//span[normalize-space()='Professor spotlight']")
     protected WebElement professorSpotlightOnHomePage;
-    @FindBy(xpath = "(//div[contains(@class,'MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 test css-168b4fm')])[1]")
+    @FindBy(xpath = "//*[contains(@class, 'MuiGrid-grid-sm-4')]")
     protected WebElement professorsSpotlightList;
-    @FindBy(xpath = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-1v86jwt'])[1]")
+    @FindBy(xpath = "//*[contains(@class, 'MuiGrid-grid-sm-8')]")
     protected WebElement professorsSpotlightInfoAboutProfessors;
 
 
     public void waitForLoadingWelcomeToNoCodeUniversityText() {
         wait = new Wait(driver);
         wait.forVisibility(welcomeToNoCodeUniversityText);
-    }
-    public void waitForLoadingAboutUsInfoOnHomePageRow() {
-        wait = new Wait(driver);
-        wait.forVisibility(aboutUsInfoOnHomePageRow);
-    }
-    public void waitForLoadingCoursesCheckOutOurCoursesOnHomePageInfo() {
-        wait = new Wait(driver);
-        wait.forVisibility(coursesCheckOutOurCoursesOnHomePageInfo);
-    }
-    public void waitForLoadingProfessorSpotlightOnHomePage() {
-        wait = new Wait(driver);
-        wait.forVisibility(professorSpotlightOnHomePage);
     }
 
     public void clickSignUpNowOnHomePageButton(){
@@ -90,18 +70,6 @@ public class HomePage extends NavigationBar{
     }
     public void clickFourthRowAboutUsInfo(){
         click(fourthRowAboutUsInfo);
-    }
-    public void waitForLoadingFirstCourseOnHomePageInfo(){
-        wait = new Wait(driver);
-        wait.forVisibility(firstCourseOnHomePageInfo);
-    }
-    public void waitForLoadingSecondCourseOnHomePageInfo(){
-        wait = new Wait(driver);
-        wait.forVisibility(secondCourseOnHomePageInfo);
-    }
-    public void waitForLoadingThirdCourseOnHomePageInfo(){
-        wait = new Wait(driver);
-        wait.forVisibility(thirdCourseOnHomePageInfo);
     }
     public void clickSecondCourseOnHomePageGoToButton(){
         click(firstCourseOnHomePageGoToButton);

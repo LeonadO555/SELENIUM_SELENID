@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends NavigationBar{
+public class SignInPage extends PageBase{
     public SignInPage(WebDriver driver) {
         super(driver);
     }
@@ -21,7 +21,7 @@ public class SignInPage extends NavigationBar{
     protected WebElement forgotPasswordButton;
     @FindBy(xpath = "//a[@id='sw-go-to-sign-up-btn']")
     protected WebElement signUpButton;
-    @FindBy(xpath = "//div[@id='signin']//div//div//div//i")
+    @FindBy(xpath = "//*[@class='fa fa-eye-slash show-password']")
     protected WebElement visiblePasswordButton;
 
     public void waitForLoading(){
