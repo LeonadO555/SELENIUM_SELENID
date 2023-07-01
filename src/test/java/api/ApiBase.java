@@ -31,11 +31,11 @@ public class ApiBase {
     }
 
 
-    public Response doDeleteRequest(String endPoint, Integer responseCode, int id){
+    public Response doDeleteRequest(String endPoint, Integer responseCode, Object body){
         Response resp = RestAssured.given()
                 .spec(spec)
                 .when()
-                .pathParam("id", id)
+                .body(body)
                 .log().all()
                 .delete(endPoint)
                 .then().log().all()

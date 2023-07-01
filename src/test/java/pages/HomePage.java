@@ -10,31 +10,31 @@ public class HomePage extends PageBase{
         super(driver);
     }
 
-    @FindBy(xpath = "//a[@class=\"navbar-brand\"]//img")
+    @FindBy(xpath = "//a[@class='navbar-brand']//img")
     protected WebElement logoButton;
 
-    @FindBy(xpath = "//div[@xpath=\"1\"]//button[@type='button']")
+    @FindBy(xpath = "//*[@type='button']//img")
     protected WebElement userAvatarButton;
 
-    @FindBy(xpath = "//a[@href=\"/user-profile\"]")
+    @FindBy(xpath = "//a[@href='/user-profile']")
     protected WebElement myProfileButton;
 
-    @FindBy(xpath = "//a[@href=\"#\"]")
+    @FindBy(xpath = "//a[@href='#']")
     protected WebElement signOutButton;
 
-    @FindBy(xpath = "//a[@role=\"button\"]")
+    @FindBy(xpath = "//a[@role='button']")
     protected WebElement courseButton;
 
-    @FindBy(xpath = "//a[@href=\"#teacher-spotlight-heading\"]")
+    @FindBy(xpath = "//a[@href='#teacher-spotlight-heading']")
     protected WebElement professorsSpotlightButton;
 
-    @FindBy(xpath = "//div[@class=\"MuiToolbar-root MuiToolbar-dense css-1jmxd2t\"]//a[@href=\"/student-directory\"]")
+    @FindBy(xpath = "//div[@class='MuiToolbar-root MuiToolbar-dense css-1jmxd2t']//a[@href='/student-directory']")
     protected WebElement studentDirectoryButton;
 
-    @FindBy(xpath = "//div[@class=\"inbox-list-container\"]")
+    @FindBy(xpath = "//div[@class='inbox-list-container']")
     protected WebElement professorsSpotlightForm;
 
-    @FindBy(xpath = "//div[@class=\"list-container\"]")
+    @FindBy(xpath = "//div[@class='list-container']")
     protected WebElement coursesList;
 
 
@@ -42,13 +42,9 @@ public class HomePage extends PageBase{
         wait = new Wait(driver);
         wait.forVisibility(logoButton);
         wait.forVisibility(userAvatarButton);
-        wait.forVisibility(myProfileButton);
-        wait.forVisibility(signOutButton);
         wait.forVisibility(courseButton);
         wait.forVisibility(professorsSpotlightButton);
         wait.forVisibility(studentDirectoryButton);
-        wait.forVisibility(professorsSpotlightForm);
-        wait.forVisibility(coursesList);
     }
 
     public void clickOnLogoButton(){
@@ -83,11 +79,5 @@ public class HomePage extends PageBase{
     public void clickOnCoursesList(){
         coursesList.click();
     }
-
-
-
-
-
-
 
 }
