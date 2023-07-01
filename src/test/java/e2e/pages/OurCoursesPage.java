@@ -32,7 +32,7 @@ public class OurCoursesPage extends PageBase{
     public void clickLawTagLIstSort(){
         click(lawTagLIstSort);
     }
-    public void fillFieldSearchCourses(String nameCourse){
+    public void fillSearchCourses(String nameCourse){
         searchField.sendKeys(nameCourse);
     }
     public void clickDiscoverMoreButton(){

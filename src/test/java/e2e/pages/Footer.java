@@ -27,15 +27,12 @@ public class Footer extends PageBase{
     protected WebElement linkOnInstagram;
 
 
-    public void waitForLoading(){
-        wait = new Wait(driver);
-            try{
-                wait.forVisibility(linkOnKovaliItWeb);
-            }catch (ElementClickInterceptedException e) {
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                js.executeScript("window.scrollBy(0,500)", "");
-                click(linkOnKovaliItWeb);
-            }
+    public class ScrollUtils {
+        public static void scrollToElement(WebDriver driver, WebElement element)
+        { JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+            jsExecutor.executeScript("arguments[0].scrollIntoView({behavior: 'smooth',block: 'center'});",
+                    element);
+        }
     }
     public void clickLinkOnKoyaliItWeb(){
         click(linkOnKovaliItWeb);

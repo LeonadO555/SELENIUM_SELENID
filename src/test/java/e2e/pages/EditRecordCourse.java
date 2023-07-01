@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EditRecordCourse extends PageBase{
+public class EditRecordCourse extends AddCoursePage{
     public EditRecordCourse(WebDriver driver) {
         super(driver);
     }
@@ -37,31 +37,9 @@ public class EditRecordCourse extends PageBase{
     public void waitForLoading(){
         wait = new Wait(driver);
         wait.forVisibility(editDialog);
+
     }
-    public void imputeFillCourseName(String courseName){
-        courseNameField.sendKeys(courseName);
-    }
-    public void imputeFillDescription(String description){
-        descriptionField.sendKeys(description);
-    }
-    public void choseFaculty(String faculty){
-        selectOption(faculty, facultyDropDown);
-    }
-    public void imputeFillTeacher(String nameTeacher){
-        teacherField.sendKeys(nameTeacher);
-    }
-    public void imputeFillDocumentName(String fileDocuments){
-        documentNameField.sendKeys(fileDocuments);
-    }
-    public void imputeFillUploadFile(String fileUpload){
-        uploadFileField.sendKeys(fileUpload);
-    }
-    public void imputeFillStartData(String dataStart){
-        startData.sendKeys(dataStart);
-    }
-    public void imputeFillEndData(String dataEnd){
-        endData.sendKeys(dataEnd);
-    }
+
     public void clickCancelButton(){
         click(cancelButton);
     }

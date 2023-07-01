@@ -30,7 +30,7 @@ public class PageBase {
         }
     }
 
-    public void fillField(WebElement field) {
+    public void fillInput(WebElement field) {
         click(field);
         field.clear();
         field.sendKeys();

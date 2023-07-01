@@ -12,47 +12,52 @@ public class AddCoursePage extends PageBase{
     Wait wait;
 
     @FindBy(xpath = "//div[@field='Course Name']")
-    protected WebElement courseNameField;
+    protected WebElement courseNameInput;
 
     @FindBy(xpath = "//div[@field='Faculty']")
-    protected WebElement facultyRow;
+    protected WebElement facultyDropdown;
 
     @FindBy(xpath = "//div[@field='Description']")
-    protected WebElement courseDescriptionField;
+    protected WebElement courseDescriptionInput;
 
     @FindBy(xpath = "(//input[@id='course-documents-form-CoverPhoto-1704715303'])[1]")
-    protected WebElement coverPhoto;
+    protected WebElement coverImageInput;
 
     @FindBy(xpath = "//div[@field='Start date']")
-    protected WebElement courseStartData;
+    protected WebElement courseStartDateInput;
 
     @FindBy(xpath = "//div[@field='End date']")
-    protected WebElement courseEndDate;
+    protected WebElement courseEndDateInput;
 
     @FindBy(xpath = "//button[normalize-space()='Add']")
     protected WebElement addButton;
 
     public void waitForLoading(){
         wait = new Wait(driver);
+        wait.forVisibility(courseNameInput);
+        wait.forVisibility(facultyDropdown);
+        wait.forVisibility(courseDescriptionInput);
+        wait.forVisibility(courseStartDateInput);
+        wait.forVisibility(courseEndDateInput);
         wait.forVisibility(addButton);
     }
-    public void imputeFillCourseName(String courseName){
-        courseNameField.sendKeys(courseName);
+    public void fillName(String courseName){
+        courseNameInput.sendKeys(courseName);
     }
-    public void choseFacultyRow(String faculty){
-        selectOption(faculty, facultyRow);
+    public void selectFaculty(String faculty){
+        selectOption(faculty, facultyDropdown);
     }
-    public void imputeFillCourseDescription(String descriptionInfo){
-        courseDescriptionField.sendKeys(descriptionInfo);
+    public void fillDescription(String descriptionInfo){
+        courseDescriptionInput.sendKeys(descriptionInfo);
     }
-    public void imputeFillCoverPhoto(String photo){
-        coverPhoto.sendKeys(photo);
+    public void uploadCoverImage(String photo){
+        coverImageInput.sendKeys(photo);
     }
-    public void imputeFillCourseStartData(String startData){
-        courseStartData.sendKeys(startData);
+    public void fillStartDate(String startData){
+        courseStartDateInput.sendKeys(startData);
     }
-    public void imputeFillCourseEndData(String endData){
-        courseEndDate.sendKeys(endData);
+    public void fillEndDate(String endData){
+        courseEndDateInput.sendKeys(endData);
     }
     public void clickAddButton(){
         click(addButton);

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum EndPoint {
+public enum FacultyEnum {
     BUSINESS_SCHOOL("(//div[contains(@role,'button')])[6]"),
     ENGINEERING("(//div[contains(@role,'button')])[7]"),
     SCIENCES("(//div[contains(@role,'button')])[8]"),

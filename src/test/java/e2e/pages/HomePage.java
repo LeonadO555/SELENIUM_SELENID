@@ -12,7 +12,7 @@ public class HomePage extends PageBase{
     }
     Wait wait;
 
-    @FindBy(xpath = "//header[@id='hero-non-logged-in']//h1[1]")
+    @FindBy(xpath = "//img[@class='sw-width-5xs']")
     protected WebElement welcomeToNoCodeUniversityText;
 
     @FindBy(xpath = "//a[normalize-space()='Sign up now']")
@@ -34,11 +34,11 @@ public class HomePage extends PageBase{
     protected WebElement fourthRowAboutUsInfo;
 
     @FindBy(xpath = "//*[@data-item-index='0']//a")
-    protected WebElement firstCourseOnHomePageGoToButton;
+    protected WebElement firstCourseGoToButton;
     @FindBy(xpath = "//*[@data-item-index='1']//a")
-    protected WebElement secondCourseOnHomePageGoToButton;
+    protected WebElement secondCourseGoToButton;
     @FindBy(xpath = "//*[@data-item-index='2']//a")
-    protected WebElement thirdCourseOnHomePageGoToButton;
+    protected WebElement thirdCourseGoToButton;
 
     @FindBy(xpath = "//span[normalize-space()='Professor spotlight']")
     protected WebElement professorSpotlightOnHomePage;
@@ -53,21 +53,21 @@ public class HomePage extends PageBase{
         wait.forVisibility(welcomeToNoCodeUniversityText);
     }
 
-    public void clickSignUpNowOnHomePageButton(){
+    public void clickSignUpNowButton(){
         click(signUpNowOnHomePageButton);
     }
-    public void clickSingInOnHomePageButton(){
+    public void clickSingInButton(){
         click(singInOnHomePageButton);
     }
 
-    public void clickSecondCourseOnHomePageGoToButton(){
-        click(firstCourseOnHomePageGoToButton);
+    public void clickFirstCourseGoToButton(){
+        click(firstCourseGoToButton);
     }
-    public void clickFirstCourseOnHomePageGoToButton(){
-        click(secondCourseOnHomePageGoToButton);
+    public void clickSecondCourseGoToButton(){
+        click(secondCourseGoToButton);
     }
-    public void clickThirdCourseOnHomePageGoToButton(){
-        click(thirdCourseOnHomePageGoToButton);
+    public void clickThirdCourseGoToButton(){
+        click(thirdCourseGoToButton);
     }
 
 }
