@@ -14,7 +14,7 @@ public class OurCoursesPage extends PageBase{
     @FindBy(xpath = "(//div[contains(@role,'button')])[10]")
     protected WebElement lawTagLIstSort;
     @FindBy(xpath = "(//input[@id=':r0:'])[1]")
-    protected WebElement searchField;
+    protected WebElement searchInput;
     @FindBy(xpath = "//div[@class='list-container']")
     protected WebElement listAllCourses;
     @FindBy(xpath = "//button[normalize-space()='Discover more']")
@@ -33,7 +33,7 @@ public class OurCoursesPage extends PageBase{
         click(lawTagLIstSort);
     }
     public void fillSearchCourses(String nameCourse){
-        searchField.sendKeys(nameCourse);
+        searchInput.sendKeys(nameCourse);
     }
     public void clickDiscoverMoreButton(){
         click(discoverMoreButton);

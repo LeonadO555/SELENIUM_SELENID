@@ -12,9 +12,9 @@ public class SignInPage extends PageBase{
     Wait wait;
 
     @FindBy(xpath = "//input[@id='sw-form-capture-email-input']")
-    protected WebElement emailField;
+    protected WebElement emailInput;
     @FindBy(xpath = "//input[@id='sw-form-password-input']")
-    protected WebElement passwordField;
+    protected WebElement passwordInput;
     @FindBy(xpath = "//a[@id='sw-sign-in-submit-btn']")
     protected WebElement signInButton;
     @FindBy(xpath = "//a[normalize-space()='Forgot password']")
@@ -26,13 +26,13 @@ public class SignInPage extends PageBase{
 
     public void waitForLoading(){
         wait = new Wait(driver);
-        wait.forVisibility(emailField);
+        wait.forVisibility(emailInput);
     }
-    public void imputeFillEmail(String email){
-        emailField.sendKeys(email);
+    public void fillEmail(String email){
+        emailInput.sendKeys(email);
     }
-    public void imputeFillPassword(String password){
-        passwordField.sendKeys(password);
+    public void fillPassword(String password){
+        passwordInput.sendKeys(password);
     }
     public void clickSignInButton(){
         click(signInButton);

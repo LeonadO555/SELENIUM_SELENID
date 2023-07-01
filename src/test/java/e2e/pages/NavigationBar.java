@@ -52,7 +52,7 @@ public class NavigationBar extends PageBase{
         wait.forVisibility(toHomePageLogoNavBarButton);
     }
 
-    public void clickToHomePageLogoNavBarButton(){
+    public void clickToHomePageLogoButton(){
         click(toHomePageLogoNavBarButton);
     }
     public void clickAboutUsNavBarButton(){

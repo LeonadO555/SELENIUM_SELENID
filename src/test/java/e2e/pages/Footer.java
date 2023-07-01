@@ -34,16 +34,16 @@ public class Footer extends PageBase{
                     element);
         }
     }
-    public void clickLinkOnKoyaliItWeb(){
+    public void openLinkOnKoyaliItWeb(){
         click(linkOnKovaliItWeb);
     }
-    public void clickLinkOnFaceBook(){
+    public void openLinkOnFaceBook(){
         click(linkOnFaceBook);
     }
-    public void clickLinkOnTwitter(){
+    public void openLinkOnTwitter(){
         click(linkOnTwitter);
     }
-    public void clickLinkOnInstagram(){
+    public void openLinkOnInstagram(){
         click(linkOnInstagram);
     }
 }

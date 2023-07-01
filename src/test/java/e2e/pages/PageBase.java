@@ -30,10 +30,10 @@ public class PageBase {
         }
     }
 
-    public void fillInput(WebElement field) {
-        click(field);
-        field.clear();
-        field.sendKeys();
+    public void fillInput(WebElement Input) {
+        click(Input);
+        Input.clear();
+        Input.sendKeys();
     }
 
     public void checkItemText(WebElement element, String expectedText, String err) {
