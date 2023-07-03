@@ -29,20 +29,29 @@ public class LoginPage extends PageBase{
     protected WebElement signUpButton;
 
     @FindBy(xpath = "//a[normalize-space()='']//img")
-    protected WebElement homePageButton;
+    protected WebElement logoButton;
 
     public void waitForLoading(){
         wait = new Wait(driver);
         wait.forVisibility(signInForm);
+        wait.forVisibility(emailField);
+        wait.forVisibility(passwordField);
+        wait.forVisibility(signInButton);
+        wait.forVisibility(forgotPasswordButton);
+        wait.forVisibility(signUpButton);
+        wait.forVisibility(logoButton);
+
     }
 
-    public void fillEmailField(String text){
+    public void fillEmailInput(String text){
         emailField.click();
+        emailField.clear();
         emailField.sendKeys(text);
     }
 
-    public void fillPasswordField(String text){
+    public void fillPasswordInput(String text){
         passwordField.click();
+        passwordField.clear();
         passwordField.sendKeys(text);
     }
 
@@ -57,5 +66,6 @@ public class LoginPage extends PageBase{
     public void clickOnForgotPasswordButton(){
         forgotPasswordButton.click();
     }
+
 
 }
