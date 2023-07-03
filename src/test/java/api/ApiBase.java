@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+
 public class ApiBase {
 
     final String BASE_URI = "https://jere237.softr.app/sign-in";
@@ -17,10 +18,10 @@ public class ApiBase {
             .addHeader("Access-Token", API_KEY)
             .build();
 
-    public Response doPostRequest(String endPoint, Integer responseCode, Object body){
+    public Response doPostRequest(String endPoint, Integer responseCode, String email){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .body(body)
+                .pathParam("email", email)
                 .when()
                 .log().all()
                 .post(endPoint)
@@ -31,11 +32,11 @@ public class ApiBase {
     }
 
 
-    public Response doDeleteRequest(String endPoint, Integer responseCode, Object body){
+    public Response doDeleteRequest(String endPoint, Integer responseCode, String email){
         Response resp = RestAssured.given()
                 .spec(spec)
                 .when()
-                .body(body)
+                .pathParam("email", email)
                 .log().all()
                 .delete(endPoint)
                 .then().log().all()
@@ -43,7 +44,4 @@ public class ApiBase {
         resp.then().assertThat().statusCode(responseCode);
         return resp;
     }
-
-
-
 }

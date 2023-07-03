@@ -93,43 +93,43 @@ public class ProfilePage extends HomePage{
     }
 
 
-    public void fillNameInput(String text){
+    public void fillName(String text){
         nameInput.click();
         nameInput.clear();
         nameInput.sendKeys(text);
     }
 
-    public void fillEmailInput(String text){
+    public void fillEmail(String text){
         emailInput.click();
         aboutYourselfInput.clear();
         emailInput.sendKeys(text);
     }
 
-    public void fillAboutYourselfInput(String text){
+    public void fillAboutYourself(String text){
         aboutYourselfInput.click();
         aboutYourselfInput.clear();
         aboutYourselfInput.sendKeys(text);
     }
 
-    public void fillExternalProfileInput(String text){
+    public void fillExternalProfile(String text){
         externalProfileInput.click();
         externalProfileInput.clear();
         externalProfileInput.sendKeys(text);
     }
 
-    public void fillMajorInput(String text){
+    public void fillMajor(String text){
         majorInput.click();
         majorInput.clear();
         majorInput.sendKeys(text);
     }
 
-    public void fillOldPasswordInput(String text) {
+    public void fillOldPassword(String text) {
         oldPasswordInput.click();
         oldPasswordInput.clear();
         oldPasswordInput.sendKeys(text);
     }
 
-    public void fillNewPasswordInput(String text) {
+    public void fillNewPassword(String text) {
         newPasswordInput.click();
         newPasswordInput.clear();
         newPasswordInput.sendKeys(text);
