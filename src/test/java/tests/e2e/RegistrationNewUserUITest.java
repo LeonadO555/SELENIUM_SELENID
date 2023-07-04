@@ -29,7 +29,7 @@ public class RegistrationNewUserUITest extends TestBase {
     String errorMessage2 = "User by given email already exists.";
 
     @Test
-    public void registrationNewUserViaApiCheckViaUIAndDeleteTest(){
+    public void registrationNewUserViaApiCheckViaUIAndDeleteViaApiTest(){
         userApi = new UserApi();
         RegistrationDTO registrationDTO = userApi.randomDataForNewUser();
         Response response = userApi.registrationNewUserApi(201, registrationDTO);
