@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import enums.Roles;
 import enums.UserEmails;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
@@ -16,8 +17,8 @@ public class PageBase {
     private ElementsCollection socialLinks = $$x("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 links css-waew46']//a"); //общий локатор для 3х элементов (ссылок)
 
     String defaultPassword = "123456";
-    public void selectRole(String role,  WebElement selectElement) {
-        selectOption(role,selectElement);
+    public void selectRole(Roles role, WebElement selectElement) {
+        selectOption(role.getValue(),selectElement);
     }
 
     public void selectOption(String optionName, WebElement selectElement) {
