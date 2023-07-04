@@ -20,8 +20,8 @@ public class HomePage extends PageBase{
     public SelenideElement professorsButton = $x("//span[normalize-space()='Professors']");
     public SelenideElement signInButton = $x("//a[@id='sw-sign-in-submit-btn']");
     public SelenideElement signUpButton = $x("//div/a[@href='/sign-up']");
-    public SelenideElement AddCourseButton = $x("//span[normalize-space()='Add course']");
-    public SelenideElement CoursesDropDownMenu = $x("//span[normalize-space()='Add course']");
+    public SelenideElement addCourseButton = $x("//span[normalize-space()='Add course']");
+    public SelenideElement coursesDropDownMenu = $x("//span[normalize-space()='Add course']");
     public SelenideElement courseListButton = $x("//div[@class='MuiBox-root css-0']//a[@role='menuitem']");
     public SelenideElement viewCoursesButton = $x("//a[normalize-space()='View Courses']");
     public SelenideElement studentDirectoryButton = $x("//span[normalize-space()='Student Directory']");

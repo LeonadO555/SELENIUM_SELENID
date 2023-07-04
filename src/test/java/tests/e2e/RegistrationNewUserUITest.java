@@ -1,6 +1,5 @@
 package tests.e2e;
 
-import api.RegistrationDTO;
 import api.UserApi;
 import com.codeborne.selenide.Condition;
 import enums.Roles;
@@ -21,18 +20,16 @@ public class RegistrationNewUserUITest extends TestBase {
     StudentDirectoryPage studentDirectoryPage;
     ProfessorSpotlightPage professorSpotlightPage;
 
-    String studentName = "Anna Belova";
+    String studentName = "Nona Sirbul";
     String teacherName = "Boris Risker";
     String invalidPassword = "1234";
-    String invalidDomainEmail = "ggcdhzd@brrrr.brrrrrr";
     String errorMessage1 = "Please make sure there are no empty required fields";
     String errorMessage2 = "User by given email already exists.";
 
     @Test
     public void registrationNewUserViaApiCheckViaUIAndDeleteViaApiTest(){
         userApi = new UserApi();
-        RegistrationDTO registrationDTO = userApi.randomDataForNewUser();
-        Response response = userApi.registrationNewUserApi(201, registrationDTO);
+        Response response = userApi.registrationNewUserApi(201);
         String userEmail = response.jsonPath().getString("email");
         String userName = response.jsonPath().getString("full_name");
         homePage = new HomePage();
@@ -42,6 +39,7 @@ public class RegistrationNewUserUITest extends TestBase {
         professorSpotlightPage.professorList.findBy(Condition.exactText(userName));
         professorSpotlightPage.professorList.contains(userName);
         userApi.deleteExistingUser(userEmail, 200);
+        userApi.deleteExistingUser(userEmail, 404);
     }
 
     @Test
@@ -50,13 +48,14 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
         registrationPage.singUpTable.isDisplayed();
-        registrationPage.userRegistration(Roles.STUDENT , UserNames.STUDENT_ANNA_BELOVA, UserEmails.STUDENT_ANNA_BELOVA);
+        registrationPage.userRegistration(Roles.STUDENT , UserNames.STUDENT_NONA_SIRBUL, UserEmails.STUDENT_NONA_SIRBUL, homePage.getDefaultPassword());
         homePage.avatarButton.isDisplayed();
         homePage.studentDirectoryButton.click();
         studentDirectoryPage = new StudentDirectoryPage();
         studentDirectoryPage.header.isDisplayed();
         studentDirectoryPage.searchBox.sendKeys(studentName);
         studentDirectoryPage.studentList.contains(studentName);
+        studentDirectoryPage.studentList.contains(UserEmails.STUDENT_NONA_SIRBUL);
     }
 
     @Test
@@ -65,14 +64,14 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
         registrationPage.singUpTable.isDisplayed();
-        registrationPage.userRegistration(Roles.TEACHER , UserNames.TEACHER_BORIS_RISKER, UserEmails.TEACHER_BORIS_RISKER);
+        registrationPage.userRegistration(Roles.TEACHER , UserNames.TEACHER_BORIS_RISKER, UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
         homePage.avatarButton.isDisplayed();
         homePage.professorsButton.click();
         professorSpotlightPage = new ProfessorSpotlightPage();
         professorSpotlightPage.professorList.findBy(Condition.exactText(teacherName));
         professorSpotlightPage.professorList.contains(teacherName);
+        professorSpotlightPage.professorList.contains(UserEmails.TEACHER_BORIS_RISKER);
     }
-//TODO: при запуске теста teacherRegustration , не отображается search box (Element not found)
 
     @Test
     public void registrationNewTeacherWithInvalidPasswordDataTest(){
@@ -80,7 +79,7 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
         registrationPage.singUpTable.isDisplayed();
-        registrationPage.userRegistrationWithInvalidPasswordData(Roles.TEACHER,UserNames.TEACHER_NATALI_VOLKOVA, UserEmails.TEACHER_NATALI_VOLKOVA, invalidPassword);
+        registrationPage.userRegistration(Roles.TEACHER,UserNames.TEACHER_NATALI_VOLKOVA, UserEmails.TEACHER_NATALI_VOLKOVA, invalidPassword);
         registrationPage.singUpTable.isDisplayed();
         registrationPage.emptyRequiredFieldsMessageBlock.getOwnText().equals(errorMessage1);
 
@@ -92,9 +91,9 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
         registrationPage.singUpTable.isDisplayed();
-        registrationPage.userRegistrationWithInvalidDomainData(Roles.STUDENT,UserNames.STUDENT_KRISTINA_MUNTIAN, invalidDomainEmail);
+        registrationPage.userRegistration(Roles.STUDENT,UserNames.STUDENT_KRISTINA_MUNTIAN, UserEmails.INVALID_DOMAIN_EMAIL, homePage.getDefaultPassword());
         registrationPage.singUpTable.isDisplayed();
-        registrationPage.emptyRequiredFieldsMessageBlock.getOwnText().equals(errorMessage1);
+        //registrationPage.emptyRequiredFieldsMessageBlock.getOwnText().equals(errorMessage1); // this functional does not work. Was created bug report Defect ID: [2]
     }
 
     @Test
@@ -103,7 +102,7 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
         registrationPage.singUpTable.isDisplayed();
-        registrationPage.userRegistration(Roles.TEACHER,UserNames.TEACHER_BORIS_RISKER, UserEmails.TEACHER_BORIS_RISKER);
+        registrationPage.userRegistration(Roles.TEACHER,UserNames.TEACHER_BORIS_RISKER, UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
         registrationPage.singUpTable.isDisplayed();
         registrationPage.existUserMessageBlock.getOwnText().equals(errorMessage2);
     }

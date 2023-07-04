@@ -33,7 +33,7 @@ public class MyProfilePage extends HomePage{
         fullNameInput.sendKeys(userName);
         emailInput.sendKeys(userEmail);
         aboutMeInput.sendKeys(description);
-       // avatarImageInput.sendKeys("images/teacher.jpg");
+       // avatarImageInput.sendKeys("images/teacher.jpg"); this functional does not work. Was created bug report Defect ID: [12]
         externalProfileLinkInput.sendKeys(externalProfileLink);
         majorInput.sendKeys(majorIn);
         updateProfileButton.click();

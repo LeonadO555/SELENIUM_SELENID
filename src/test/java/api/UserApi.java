@@ -16,10 +16,9 @@ public class UserApi extends ApiBase {
         dto.setGenerate_magic_link("false");
         return dto;
     }
-    public Response registrationNewUserApi(Integer code, RegistrationDTO randomDataForRegisterUser){
+    public Response registrationNewUserApi(Integer code){
         String endpoint = "/v1/api/users";
-        String name = randomDataForNewUser().getFull_name();
-        response = doPostRequest(endpoint, code, randomDataForRegisterUser);
+        response = doPostRequest(endpoint, code, randomDataForNewUser());
         return response;
     }
 

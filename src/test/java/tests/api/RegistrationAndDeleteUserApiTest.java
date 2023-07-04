@@ -8,23 +8,16 @@ import org.testng.annotations.Test;
 
 public class RegistrationAndDeleteUserApiTest extends ApiBase {
     UserApi userApi;
-    RegistrationDTO registrationDTO;
-
-
-    @Test
-    public void registrationNewUserApi(){
-        userApi = new UserApi();
-        RegistrationDTO registrationDTO = userApi.randomDataForNewUser();
-        userApi.registrationNewUserApi(200, registrationDTO);
-    }
 
     @Test
     public void registrationNewUserAndDeleteApi(){
         userApi = new UserApi();
         RegistrationDTO registrationDTO = userApi.randomDataForNewUser();
-        Response response = userApi.registrationNewUserApi(201, registrationDTO);
+        Response response = userApi.registrationNewUserApi(201);
         String userEmail = response.jsonPath().getString("email");
         userApi.deleteExistingUser(userEmail, 200);
+        userApi.deleteExistingUser(userEmail, 404);
+
     }
 
 }
