@@ -1,22 +1,22 @@
 package tests.login;
 
 import org.testng.annotations.Test;
-import pages.HomePage;
+import pages.MainPage;
 import pages.LoginPage;
-import pages.teachers.TeachersMainPage;
+import pages.teachers.TeachersHomePage;
 import tests.TestBase;
 
 public class TeacherLoginTest extends TestBase {
-    HomePage homePage;
+    MainPage mainPage;
     LoginPage loginPage;
-    TeachersMainPage teachersMainPage;
-    String email = "sasha2@gmail.com";
+    TeachersHomePage teachersHomePage;
+    String email = "roxanne@example.com";
     String password = "123456";
 
     @Test
     public void loginExistingTeacherUser() {
-        homePage = new HomePage(app.driver);
-        homePage.clickOnSingInButton();
+        mainPage = new MainPage(app.driver);
+        mainPage.clickOnSingInButton();
 
         loginPage = new LoginPage(app.driver);
         loginPage.waitForLoading();
@@ -24,8 +24,9 @@ public class TeacherLoginTest extends TestBase {
         loginPage.fillPasswordField(password);
         loginPage.clickOnTheSignInButtonInTheForm();
 
-        teachersMainPage = new TeachersMainPage(app.driver);
-        teachersMainPage.waitForLoading();
+        teachersHomePage = new TeachersHomePage(app.driver);
+        teachersHomePage.waitForLoading();
+        teachersHomePage.checkForVisibilityAddCourseButton();
     }
 
 

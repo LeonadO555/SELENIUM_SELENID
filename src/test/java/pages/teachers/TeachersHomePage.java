@@ -3,11 +3,11 @@ package pages.teachers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.HomePage;
+import pages.MainPage;
 import wait.Wait;
 
-public class TeachersMainPage extends HomePage {
-    public TeachersMainPage(WebDriver driver) {
+public class TeachersHomePage extends MainPage {
+    public TeachersHomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -92,5 +92,9 @@ public class TeachersMainPage extends HomePage {
 
     public void goToMainPage() {
         logoButton.click();
+    }
+
+    public void checkForVisibilityAddCourseButton() {
+        wait.forVisibility(addACourseButton);
     }
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import wait.Wait;
 
-public class LoginPage extends HomePage {
+public class LoginPage extends MainPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -37,7 +37,7 @@ public class LoginPage extends HomePage {
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(loginForm);
-        wait.forInvisibility(emailField);
+        //wait.forInvisibility(emailField);
         wait.forVisibility(passwordField);
         wait.forVisibility(signInButtonInTheForm);
     }

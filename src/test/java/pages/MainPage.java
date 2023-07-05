@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import wait.Wait;
 
-public class HomePage extends PageBase{
+public class MainPage extends PageBase{
 
-    public HomePage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         super(driver);
     }
 
@@ -40,7 +40,7 @@ public class HomePage extends PageBase{
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(logoButton);
-        wait.forInvisibility(signInButton);
+        //wait.forInvisibility(signInButton);
         wait.forVisibility(signUpButton);
         wait.forVisibility(aboutUsTab);
         wait.forVisibility(coursesTab);

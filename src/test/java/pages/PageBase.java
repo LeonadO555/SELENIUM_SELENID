@@ -39,6 +39,8 @@ public class PageBase {
         field.sendKeys(text);
     }
 
+
+
     public void checkItemText(WebElement element, String expectedText, String err) {
         String actualText = element.getText();
         Assert.assertEquals(actualText, expectedText, err);

@@ -3,10 +3,10 @@ package pages.teachers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.HomePage;
+import pages.MainPage;
 import wait.Wait;
 
-public class AddCoursePage extends HomePage {
+public class AddCoursePage extends MainPage {
     public AddCoursePage(WebDriver driver) {
         super(driver);
     }
@@ -51,21 +51,18 @@ public class AddCoursePage extends HomePage {
         fillField(courseNameField, courseName);
     }
 
-    // Написать!!!
-    public void selectFaculty() {
-
+    public void selectFaculty(String facultyName) {
+        selectOption(facultyName, facultyDropDown);
     }
 
     public void fillCourseDescriptionField(String description) {
         fillField(courseDescriptionField, description);
     }
 
-    // Написать!!!
+    // ???
     public void selectCourseStartDate() {
 
     }
-
-    // Написать!!!
     public void selectCourseEndDate() {
 
     }

@@ -3,12 +3,12 @@ package pages.teachers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.HomePage;
+import pages.MainPage;
 import wait.Wait;
 
-public class MyProfilePage extends HomePage {
+public class MyProfileTeachersPage extends MainPage {
 
-    public MyProfilePage(WebDriver driver) {
+    public MyProfileTeachersPage(WebDriver driver) {
         super(driver);
     }
 
