@@ -18,7 +18,7 @@ public class HomePage extends PageBase{
     public SelenideElement aboutUsButton = $x("//span[normalize-space()='About Us']");
     public SelenideElement coursesButton = $x("//span[normalize-space()='Courses']");
     public SelenideElement professorsButton = $x("//span[normalize-space()='Professors']");
-    public SelenideElement signInButton = $x("//a[@id='sw-sign-in-submit-btn']");
+    public SelenideElement signInButton = $x("//span[@class='MuiBox-root css-jf8tht']");
     public SelenideElement signUpButton = $x("//div/a[@href='/sign-up']");
     public SelenideElement addCourseButton = $x("//span[normalize-space()='Add course']");
     public SelenideElement coursesDropDownMenu = $x("//span[normalize-space()='Add course']");

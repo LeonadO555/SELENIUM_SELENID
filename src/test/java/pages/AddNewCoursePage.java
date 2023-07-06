@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class AddNewCoursePage extends HomePage{
     private SelenideElement addNewCourseTable = $x("//div[@class='MuiGrid-root MuiGrid-container css-t7lb4m']");
     private SelenideElement courseNameInput = $x("//input[@id='course-documents-form-CourseName--1078269106']");
-    private SelenideElement facultyDropdown = $x("//div[@id='course-documents-form-Faculty-1389247778']");
+    private SelenideElement facultyDropdown = $x("//input[@id=\"course-documents-form-Faculty-1389247778\"]");
     private SelenideElement courseDescriptionField = $x("//textarea[@id='course-documents-form-Description-1634506682']");
     private SelenideElement coverPhotoForm = $x("//input[@id='course-documents-form-CoverPhoto-1704715303']");
     private SelenideElement courseStartDate = $x("//input[@id='course-documents-form-Startdate-831849774']");
@@ -20,7 +20,7 @@ public class AddNewCoursePage extends HomePage{
     public void selectFaculty(String facultyName) {
         selectOption(facultyName,facultyDropdown);
     }
-    public void addNewCourse(String courseName, String facultyName, String courseDescription, String photoLink, String courseStart, String courseEnd, String faculty){
+    public void addNewCourse(String courseName, String courseDescription, String courseStart, String courseEnd, String faculty){
         addNewCourseTable.shouldBe(Condition.visible);
         courseNameInput.sendKeys(courseName);
         selectFaculty(faculty);
