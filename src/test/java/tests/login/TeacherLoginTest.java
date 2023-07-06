@@ -1,5 +1,4 @@
 package tests.login;
-
 import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.LoginPage;
