@@ -30,7 +30,9 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         addNewCoursePage = new AddNewCoursePage();
         addNewCoursePage.getAddNewCourseTable().isDisplayed();
         addNewCoursePage.addNewCourse(facultyName, faculty, courseDescription,courseStart,courseEnd );
-        homePage.avatarButton.sendKeys(faculty);
+
+
+
 
     }
 
