@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.google.common.base.Enums;
+import enums.Roles;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -26,13 +27,13 @@ public class MyProfilePage extends HomePage{
     public SelenideElement changePasswordButton = $x("//a[@id='sw-change-password-btn']");
 
 
-    public void updateUserProfile(String userName, String userEmail, String description, String externalProfileLink, String majorIn, String role ){
+    public void updateUserProfile(String userName, String userEmail, String description, String externalProfileLink, String majorIn, Roles role ){
         tellMeAboutYourselfTitle.shouldBe(Condition.visible);
         selectRole(role,roleDropdown);
         fullNameInput.sendKeys(userName);
         emailInput.sendKeys(userEmail);
         aboutMeInput.sendKeys(description);
-       // avatarImageInput.sendKeys("images/teacher.jpg");
+       // avatarImageInput.sendKeys("images/teacher.jpg"); this functional does not work. Was created bug report Defect ID: [12]
         externalProfileLinkInput.sendKeys(externalProfileLink);
         majorInput.sendKeys(majorIn);
         updateProfileButton.click();
