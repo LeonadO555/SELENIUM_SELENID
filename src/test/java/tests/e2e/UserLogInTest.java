@@ -19,7 +19,6 @@ public class UserLogInTest extends TestBase {
         loginPage.login(UserEmails.TEACHER_BORIS_RISKER);
         homePage.avatarButton.isDisplayed();
     }
-
     @Test
     public void studentSuccessfullyLogIn(){
         homePage = new HomePage();

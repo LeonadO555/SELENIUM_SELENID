@@ -38,14 +38,5 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
 
     }
 
-    @Test
-    public void clickOnSingOutButton(){
-        homePage = new HomePage();
-        homePage.signInButton.click();
-        loginPage = new LoginPage();
-        loginPage.getLoginTable().isDisplayed();
-        loginPage.getTeacherLogIn();
-        homePage.avatarButton.click();
-    }
 
 }

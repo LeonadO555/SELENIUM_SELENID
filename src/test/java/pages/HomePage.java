@@ -32,7 +32,6 @@ public class HomePage extends PageBase{
     public SelenideElement myProfileButton = $x("//span[normalize-space()='My Profile']");
     public SelenideElement singOutButton = $x("//span[normalize-space()='Sign Out']");
 
-
     public WebElement makeBlockLocator(String index){
         return $x("//*[@data-item-index='"+index+"']");
     }
