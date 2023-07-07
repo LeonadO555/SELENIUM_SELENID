@@ -17,6 +17,8 @@ public class CourseDeatailsPage extends HomePage{
     private SelenideElement documentNameInput = $x("//input[@id='upload-course-material-form-DocumentName--1971305433']");
     private SelenideElement uploadDocumentField = $x("//input[@id='upload-course-material-form-Document-1880928548']");
     private SelenideElement uploadButton = $x("//input[@id='upload-course-material-form-Document-1880928548']");
+    private SelenideElement returnHomeButton = $x("//span[normalize-space()='Return home']");
+
 
     public void uploadCourseMaterial(String courseName){
         documentNameInput.sendKeys(courseName);

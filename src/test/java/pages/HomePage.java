@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
@@ -26,7 +27,8 @@ public class HomePage extends PageBase{
     public SelenideElement viewCoursesButton = $x("//a[normalize-space()='View Courses']");
     public SelenideElement studentDirectoryButton = $x("//span[normalize-space()='Student Directory']");
     public SelenideElement studentDirectoryAboutUsButton = $x("//span[normalize-space()='Student Directory']");
-    public SelenideElement avatarButton = $x("//span[normalize-space()='Student Directory']");
+    public SelenideElement avatarButton = $x("//button[@type='button']//span[@class='MuiTouchRipple-root css-w0pj6f']");
+    private ElementsCollection avatarList = $$x("//ul[@role=\"menu\"]");
     public SelenideElement myProfileButton = $x("//span[normalize-space()='My Profile']");
     public SelenideElement singOutButton = $x("//span[normalize-space()='Sign Out']");
 
@@ -37,5 +39,8 @@ public class HomePage extends PageBase{
     public void clickOnGoToButton(String index){
         makeBlockLocator(index).findElement(By.xpath("//a[@href='/sign-up?recordId=rec0dPvLYTpfd1jvd']")).click();
     }
+
+
+
 
 }
