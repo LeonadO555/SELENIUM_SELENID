@@ -34,7 +34,7 @@ public class TeachersHomePage extends MainPage {
     @FindBy (xpath = "//span[normalize-space()='Courses']")
     protected WebElement coursesTab;
 
-    @FindBy (css = ".sw-font-size-m.sw-text-color-424242.sw-font-family-default.sw-font-weight-normal.sw-letter-spacing-normal.MuiBox-root.css-0")
+    @FindBy (xpath = "//div[@class='MuiBox-root css-0']//a[@role='menuitem']")
     protected WebElement coursesListTab;
 
     @FindBy (xpath = "//span[normalize-space()='About Us']")

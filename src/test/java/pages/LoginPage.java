@@ -17,10 +17,10 @@ public class LoginPage extends MainPage {
     protected WebElement loginForm;
 
     @FindBy (xpath = "//input[@id='sw-form-capture-email-input']")
-    protected WebElement emailField;
+    protected WebElement emailInput;
 
     @FindBy (xpath = "//input[@id='sw-form-password-input']")
-    protected WebElement passwordField;
+    protected WebElement passwordInput;
 
     @FindBy (xpath = "//a[@id='sw-sign-in-submit-btn']")
     protected WebElement signInButtonInTheForm;
@@ -38,16 +38,16 @@ public class LoginPage extends MainPage {
         wait = new Wait(driver);
         wait.forVisibility(loginForm);
         //wait.forInvisibility(emailField);
-        wait.forVisibility(passwordField);
+        wait.forVisibility(passwordInput);
         wait.forVisibility(signInButtonInTheForm);
     }
 
-    public void fillEmailField(String email) {
-        fillField(emailField, email);
+    public void fillEmail(String email) {
+        fillField(emailInput, email);
     }
 
-    public void fillPasswordField(String password) {
-        fillField(passwordField, password);
+    public void fillPassword(String password) {
+        fillField(passwordInput, password);
     }
 
     public void clickOnTheSignInButtonInTheForm() {

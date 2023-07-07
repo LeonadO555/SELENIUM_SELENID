@@ -19,8 +19,8 @@ public class TeacherLoginTest extends TestBase {
 
         loginPage = new LoginPage(app.driver);
         loginPage.waitForLoading();
-        loginPage.fillEmailField(email);
-        loginPage.fillPasswordField(password);
+        loginPage.fillEmail(email);
+        loginPage.fillPassword(password);
         loginPage.clickOnTheSignInButtonInTheForm();
 
         teachersHomePage = new TeachersHomePage(app.driver);
