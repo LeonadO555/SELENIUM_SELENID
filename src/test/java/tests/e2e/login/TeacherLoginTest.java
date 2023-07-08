@@ -1,4 +1,4 @@
-package tests.login;
+package tests.e2e.login;
 import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.LoginPage;
