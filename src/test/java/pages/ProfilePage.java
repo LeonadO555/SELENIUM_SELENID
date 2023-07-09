@@ -1,10 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.JavascriptExecutor;
+
+
+
 import wait.Wait;
 
 public class ProfilePage extends HomePage{
@@ -54,8 +55,9 @@ public class ProfilePage extends HomePage{
     @FindBy(xpath = "//a[@id='sw-change-password-btn']")
     protected WebElement changePasswordButton;
 
-    @FindBy(xpath = "//div[@role='status']")
+    @FindBy(xpath = "//i[@class='fa fa-fw fa-check d-none']")
     protected WebElement successfulUpdateProfileMsg;
+
 
 
     public void waitForLoading(){
@@ -68,7 +70,11 @@ public class ProfilePage extends HomePage{
         wait.forVisibility(userAvatarButton);
         wait.forVisibility(logoButton);
     }
-    
+
+    public void waitSuccessMsgForLoading() {
+        wait = new Wait(driver);
+        wait.forVisibility(successfulUpdateProfileMsg);
+    }
 
     public void selectTeacherRole(){
         selectRoleButton.click();
@@ -86,6 +92,11 @@ public class ProfilePage extends HomePage{
 
     public void clickOnUpdateProfileButton(){
         updateProfileButton.click();
+    }
+
+    public void scrollPageToBottom() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, window.innerHeight)");
     }
 
     public void clickOnChangePasswordButton(){

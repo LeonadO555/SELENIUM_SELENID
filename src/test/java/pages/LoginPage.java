@@ -14,10 +14,10 @@ public class LoginPage extends PageBase{
     protected WebElement signInForm;
 
     @FindBy(xpath = "//input[@type='email']")
-    protected WebElement emailField;
+    protected WebElement emailInput;
 
     @FindBy(xpath = "//input[@type='password']")
-    protected WebElement passwordField;
+    protected WebElement passwordInput;
 
     @FindBy(xpath = "//a[@id='sw-sign-in-submit-btn']")
     protected WebElement signInButton;
@@ -33,26 +33,24 @@ public class LoginPage extends PageBase{
 
     public void waitForLoading(){
         wait = new Wait(driver);
-        wait.forVisibility(signInForm);
-        wait.forVisibility(emailField);
-        wait.forVisibility(passwordField);
+        wait.forVisibility(emailInput);
+        wait.forVisibility(passwordInput);
         wait.forVisibility(signInButton);
         wait.forVisibility(forgotPasswordButton);
-        wait.forVisibility(signUpButton);
         wait.forVisibility(logoButton);
 
     }
 
     public void fillEmailInput(String text){
-        emailField.click();
-        emailField.clear();
-        emailField.sendKeys(text);
+        emailInput.click();
+        emailInput.clear();
+        emailInput.sendKeys(text);
     }
 
     public void fillPasswordInput(String text){
-        passwordField.click();
-        passwordField.clear();
-        passwordField.sendKeys(text);
+        passwordInput.click();
+        passwordInput.clear();
+        passwordInput.sendKeys(text);
     }
 
     public void clickOnSignInButton(){
@@ -66,6 +64,7 @@ public class LoginPage extends PageBase{
     public void clickOnForgotPasswordButton(){
         forgotPasswordButton.click();
     }
+
 
 
 }

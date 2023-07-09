@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
@@ -17,7 +18,7 @@ public class ApplicationManager {
     protected void init() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
-        driver.get("https://jere237.softr.app/sign-in");
+        driver.get("https://jere237.softr.app");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

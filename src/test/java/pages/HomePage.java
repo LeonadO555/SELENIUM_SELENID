@@ -13,7 +13,7 @@ public class HomePage extends PageBase{
     @FindBy(xpath = "//a[@class='navbar-brand']//img")
     protected WebElement logoButton;
 
-    @FindBy(xpath = "//*[@type='button']//img")
+    @FindBy(xpath = "//button[@type='button']//div")
     protected WebElement userAvatarButton;
 
     @FindBy(xpath = "//a[@href='/user-profile']")
@@ -21,8 +21,10 @@ public class HomePage extends PageBase{
 
     @FindBy(xpath = "//a[@href='#']")
     protected WebElement signOutButton;
+    @FindBy(xpath = "//*[@href='/sign-in']")
+    protected WebElement signInButton;
 
-    @FindBy(xpath = "//a[@role='button']")
+    @FindBy(xpath = "//a[@role='button']//span")
     protected WebElement courseButton;
 
     @FindBy(xpath = "//a[@href='#teacher-spotlight-heading']")
@@ -41,20 +43,21 @@ public class HomePage extends PageBase{
     public void waitForLoading(){
         wait = new Wait(driver);
         wait.forVisibility(logoButton);
-        wait.forVisibility(userAvatarButton);
-        wait.forVisibility(courseButton);
+      //  wait.forVisibility(courseButton);
         wait.forVisibility(professorsSpotlightButton);
-        wait.forVisibility(studentDirectoryButton);
     }
 
     public void clickOnLogoButton(){
-        logoButton.click();
+        click(logoButton);
     }
 
     public void clickOUserAvatarButton(){
-        userAvatarButton.click();
+        click(userAvatarButton);
     }
 
+    public void clickOnSignInButton(){
+        click(signInButton);
+    }
     public void clickOnMyProfileButton(){
         myProfileButton.click();
     }

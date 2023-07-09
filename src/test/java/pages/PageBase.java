@@ -37,7 +37,7 @@ public class PageBase extends TestBase {
         element.click();
     }
 
-    public void fillField(WebElement field) {
+    public void fillInput(WebElement field) {
         click(field);
         field.clear();
         field.sendKeys();
