@@ -7,15 +7,14 @@ import api.RegistrationDTO;
 
 public class RegistrationAndDeleteUser extends ApiBase{
     UserApi userApi;
-    Response response;
 
-        @Test public void registrationNewUserAndDeleteApi(){
+        @Test
+        public void registrationNewUserAndDeleteApi(){
             userApi = new UserApi();
-            RegistrationDTO registrationDTO = userApi.randomUserData();
             Response response = userApi.registrationNewUserApi(201);
             String userEmail = response.jsonPath().getString("email");
-            userApi.deleteExistingUserApi(userEmail, 200);
-            userApi.deleteExistingUserApi(userEmail, 404);
+            userApi.deleteExistingUser(userEmail, 200);
+            userApi.deleteExistingUser(userEmail, 404);
         }
     }
 

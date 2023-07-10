@@ -34,13 +34,10 @@ public class MainPage extends PageBase{
     @FindBy (xpath = "(//h1[normalize-space()=\"Welcome to NoCode University's Student Portal\"])[1]")
     protected WebElement welcomeToNoCodeTitle;
 
-    @FindBy (xpath = "//a[normalize-space()='Sign up now']")
-    protected WebElement SignUpNowButton;
-
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(logoButton);
-        //wait.forInvisibility(signInButton);
+        wait.forVisibility(signInButton);
         wait.forVisibility(signUpButton);
         wait.forVisibility(aboutUsTab);
         wait.forVisibility(coursesTab);
@@ -50,26 +47,6 @@ public class MainPage extends PageBase{
 
     public void clickOnSingInButton() {
         click(signInButton);
-    }
-
-    public void clickOnSingUpButton() {
-        click(signUpButton);
-    }
-
-    public void clickOnAboutUsTab() {
-        click(aboutUsTab);
-    }
-
-    public void clickOnCoursesTab() {
-        click(coursesTab);
-    }
-
-    public void clickOnProfessorsTab() {
-        click(professorsTab);
-    }
-
-    public void clickOnLogoButton() {
-        click(logoButton);
     }
 
 }

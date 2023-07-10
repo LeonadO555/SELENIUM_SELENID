@@ -16,5 +16,5 @@ public class RegistrationDTO {
 String full_Name;
 String email;
 String password;
-Boolean generate_magic_link;
+boolean generate_magic_link;
 }

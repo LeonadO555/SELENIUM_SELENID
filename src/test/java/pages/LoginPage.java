@@ -25,19 +25,10 @@ public class LoginPage extends MainPage {
     @FindBy (xpath = "//a[@id='sw-sign-in-submit-btn']")
     protected WebElement signInButtonInTheForm;
 
-    @FindBy (xpath = "//a[normalize-space()='Forgot password']")
-    protected WebElement forgotPasswordLink;
-
-    @FindBy (xpath = "//a[@id='sw-go-to-sign-up-btn']")
-    protected WebElement signUpButtonInTheForm;
-
-    @FindBy (xpath = "//img[@class='sw-width-5xs']")
-    protected WebElement logoButton;
-
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(loginForm);
-        //wait.forInvisibility(emailField);
+        wait.forVisibility(emailInput);
         wait.forVisibility(passwordInput);
         wait.forVisibility(signInButtonInTheForm);
     }

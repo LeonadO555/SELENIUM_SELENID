@@ -28,26 +28,10 @@ public class PageBase {
         element.click();
     }
 
-    public void selectOption(String optionName, WebElement selectElement) {
-        Select select = new Select(selectElement);
-        select.selectByVisibleText(optionName);
-    }
-
     public void fillField(WebElement field, String text) {
         click(field);
         field.clear();
         field.sendKeys(text);
-    }
-
-
-
-    public void checkItemText(WebElement element, String expectedText, String err) {
-        String actualText = element.getText();
-        Assert.assertEquals(actualText, expectedText, err);
-    }
-
-    public String getAlertText() {
-        return driver.switchTo().alert().getText();
     }
 
     public void takeAndCompareScreenshot(String actualScreenshotName, WebElement element) throws IOException {

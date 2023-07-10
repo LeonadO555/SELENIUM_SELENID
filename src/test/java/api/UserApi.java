@@ -7,12 +7,13 @@ public class UserApi extends ApiBase {
     RegistrationDTO dto;
     Response response;
     Faker faker = new Faker();
+    String defaultPassword = "12345678";
 
     public RegistrationDTO randomUserData() {
         dto = new RegistrationDTO();
         dto.setFull_Name(faker.name().firstName());
         dto.setEmail(faker.internet().emailAddress());
-        dto.setPassword("12345678");
+        dto.setPassword(defaultPassword);
         dto.setGenerate_magic_link(false);
         return dto;
     }
@@ -23,8 +24,8 @@ public class UserApi extends ApiBase {
         return response;
     }
 
-    public void deleteExistingUserApi(String email, Integer statusCode) {
-        String endPoint = "/v1/api/users{email}";
-        doDeleteRequest(endPoint, statusCode, email);
+    public void deleteExistingUser(String userEmail, Integer code){
+        String endpoint = "/v1/api/users/{email}";
+        doDeleteRequest(endpoint,code, userEmail);
     }
 }

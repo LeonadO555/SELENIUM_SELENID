@@ -36,5 +36,4 @@ public class Wait {
             e.printStackTrace();
         }
     }
-
 }
