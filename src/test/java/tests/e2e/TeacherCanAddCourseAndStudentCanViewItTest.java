@@ -1,6 +1,8 @@
 package tests.e2e;
 
 import com.codeborne.selenide.Condition;
+import enums.UserEmails;
+import enums.UserNames;
 import org.testng.annotations.Test;
 import pages.*;
 import tests.TestBase;
@@ -31,12 +33,38 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         addNewCoursePage.addNewCourse(facultyName, faculty, courseDescription,courseStart,courseEnd );
         courseDeatailsPage = new CourseDeatailsPage();
         courseDeatailsPage.getReturnHomeButton().isDisplayed();
-        homePage.avatarButton.click(); //тест падает на этом этапе. Не могу подобрать корректный локатор
-        homePage.getAvatarList().findBy(Condition.exactText("Sign Out")).click();
-        loginPage.getLoginTable().isDisplayed();
-        loginPage.getStudentLogIn();
 
     }
+
+    @Test
+    public void checkNewCourseByStudent() throws InterruptedException {
+        homePage = new HomePage();
+        homePage.signInButton.click();
+        loginPage = new LoginPage();
+        loginPage.getLoginTable().isDisplayed();
+        loginPage.getStudentLogIn();
+        Thread.sleep(10000);  // without it the app going too fast and test do not download courseListButton
+        homePage.coursesButton.shouldBe(Condition.visible);
+        homePage.coursesButton.click();
+        homePage.courseListButton.shouldBe(Condition.visible);
+        homePage.courseListButton.click();
+        courseListPage = new CourseListPage();
+        courseListPage.searchBox.shouldBe(Condition.visible);
+        courseListPage.searchCourseByName(facultyName);
+        courseListPage.courseCard.shouldBe(Condition.visible);
+        courseListPage.courseCard.click();
+        Thread.sleep(100);
+        courseDeatailsPage = new CourseDeatailsPage();
+        courseDeatailsPage.getCourseDescription().shouldBe(Condition.visible);
+        courseDeatailsPage.getCourseDescription().shouldHave(Condition.exactText(courseDescription));
+        courseDeatailsPage.getProfessorEmail().shouldHave(Condition.exactText("vse23688@omeie.com"));
+        courseDeatailsPage.getStartDate().shouldHave(Condition.exactText(courseStart));
+        courseDeatailsPage.getEndDate().shouldHave(Condition.exactText(courseEnd));
+
+
+
+    }
+
 
 
 }

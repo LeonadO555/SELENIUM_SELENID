@@ -12,12 +12,10 @@ public class RegistrationAndDeleteUserApiTest extends ApiBase {
     @Test
     public void registrationNewUserAndDeleteApi(){
         userApi = new UserApi();
-        RegistrationDTO registrationDTO = userApi.randomDataForNewUser();
         Response response = userApi.registrationNewUserApi(201);
         String userEmail = response.jsonPath().getString("email");
         userApi.deleteExistingUser(userEmail, 200);
         userApi.deleteExistingUser(userEmail, 404);
-
     }
 
 }

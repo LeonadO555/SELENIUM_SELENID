@@ -22,12 +22,12 @@ public class HomePage extends PageBase{
     public SelenideElement signInButton = $x("//span[@class='MuiBox-root css-jf8tht']");
     public SelenideElement signUpButton = $x("//div/a[@href='/sign-up']");
     public SelenideElement addCourseButton = $x("//span[normalize-space()='Add course']");
-    public SelenideElement coursesDropDownMenu = $x("//span[normalize-space()='Add course']");
-    public SelenideElement courseListButton = $x("//div[@class='MuiBox-root css-0']//a[@role='menuitem']");
+    public SelenideElement coursesDropdownMenu = $x("//span[normalize-space()='Add course']");
+    public SelenideElement courseListButton = $x("//div[@class='MuiBox-root css-0']//a[@href=\"/course-list\"]");
     public SelenideElement viewCoursesButton = $x("//a[normalize-space()='View Courses']");
     public SelenideElement studentDirectoryButton = $x("//span[normalize-space()='Student Directory']");
     public SelenideElement studentDirectoryAboutUsButton = $x("//span[normalize-space()='Student Directory']");
-    public SelenideElement avatarButton = $x("//button[@type='button']//span[@class='MuiTouchRipple-root css-w0pj6f']");
+    public SelenideElement avatarButton = $x("//img[@class=\"MuiAvatar-img css-1hy9t21\"]");
     private ElementsCollection avatarList = $$x("//ul[@role=\"menu\"]");
     public SelenideElement myProfileButton = $x("//span[normalize-space()='My Profile']");
     public SelenideElement singOutButton = $x("//span[normalize-space()='Sign Out']");
