@@ -2,6 +2,7 @@ package tests;
 
 import com.google.common.io.Files;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ public class ApplicationManager {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.get("https://jere237.softr.app");
-        driver.manage().window().maximize();
+        driver.manage().window().setSize(new Dimension(1920,1080));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }

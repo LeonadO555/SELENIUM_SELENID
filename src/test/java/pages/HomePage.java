@@ -21,7 +21,7 @@ public class HomePage extends PageBase{
 
     @FindBy(xpath = "//a[@href='#']")
     protected WebElement signOutButton;
-    @FindBy(xpath = "//*[@href='/sign-in']")
+    @FindBy(xpath = "//div[@class='container MuiBox-root css-0']//*[@href='/sign-in']")
     protected WebElement signInButton;
 
     @FindBy(xpath = "//a[@role='button']//span")

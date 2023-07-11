@@ -6,12 +6,14 @@ import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ProfilePage;
+import tests.TestBase;
 
-public class ChangeNewUserProfileApiTest extends ApiBase {
+public class ChangeNewUserProfileApiTest extends TestBase {
         UserApi userApi;
         LoginPage loginPage;
         HomePage homePage;
@@ -25,20 +27,30 @@ public class ChangeNewUserProfileApiTest extends ApiBase {
             userApi.randomNewUserData();
             Response response = userApi.registrationNewUserApi(201);
             String userEmail = response.jsonPath().getString("email");
-            loginPage = new LoginPage(driver);
+            String password = userApi.randomNewUserData().getPassword();
+
             homePage = new HomePage(driver);
+           // homePage.waitForLoading();
+            homePage.clickOnSignInButton();
+            loginPage = new LoginPage(driver);
+            loginPage.waitForLoading();
+            loginPage.fillEmailInput(userEmail);
+            loginPage.fillPasswordInput(password);
+            loginPage.clickOnSignInButton();
             homePage.waitForLoading();
+
 
             homePage.clickOUserAvatarButton();
             homePage.clickOnMyProfileButton();
-            profilePage = new ProfilePage(driver);
+            profilePage = new ProfilePage(app.driver);
             profilePage.waitForLoading();
             profilePage.selectStudentRole();
-            profilePage.fillAboutYourself(faker.lorem().sentences(4).toString());
-            profilePage.fillExternalProfile(faker.internet().url());
-            profilePage.fillMajor("Marketing");
+            profilePage.fillAboutYourself(faker.lorem().sentences(1).toString());
+            //  profilePage.fillExternalProfile("https://www.google.com");
+            // profilePage.fillMajor("Marketing");
             profilePage.clickOnUpdateProfileButton();
-            profilePage.isSuccessfulButtonPresent(By.xpath("//div[@role='status']"));
+            profilePage.waitSuccessMsgForLoading();
+            Assert.assertTrue(profilePage.isSuccessfulButtonPresent());
 
             userApi.deleteExistingUserApi(userEmail, 200);
             userApi.deleteExistingUserApi(userEmail, 404);

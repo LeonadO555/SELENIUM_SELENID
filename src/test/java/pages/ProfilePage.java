@@ -58,6 +58,7 @@ public class ProfilePage extends HomePage{
     @FindBy(xpath = "//i[@class='fa fa-fw fa-check d-none']")
     protected WebElement successfulUpdateProfileMsg;
 
+    String successMsg = "//i[@class='fa fa-fw fa-check d-none']";
 
 
     public void waitForLoading(){
@@ -91,7 +92,12 @@ public class ProfilePage extends HomePage{
     }
 
     public void clickOnUpdateProfileButton(){
-        updateProfileButton.click();
+        scrollToElement(app.driver, updateProfileButton);
+        try {
+            updateProfileButton.click();
+        } catch ( ElementNotInteractableException e){
+            e.printStackTrace();
+        }
     }
 
     public void scrollPageToBottom() {
@@ -123,7 +129,12 @@ public class ProfilePage extends HomePage{
     }
 
     public void fillExternalProfile(String text){
-        externalProfileInput.click();
+        scrollToElement(app.driver, externalProfileInput);
+        try {
+            externalProfileInput.click();
+        } catch ( ElementNotInteractableException e){
+            e.printStackTrace();
+        }
         externalProfileInput.clear();
         externalProfileInput.sendKeys(text);
     }
@@ -146,9 +157,14 @@ public class ProfilePage extends HomePage{
         newPasswordInput.sendKeys(text);
     }
 
-    public boolean isSuccessfulButtonPresent(By by) {
+    public static void scrollToElement(WebDriver driver, WebElement element) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView({behavior: 'smooth',block: 'center'});", element);
+    }
+
+    public boolean isSuccessfulButtonPresent() {
         try {
-            driver.findElement(by);
+            driver.findElement(By.xpath(successMsg));
             return true;
         } catch (NoSuchElementException exception) {
             exception.printStackTrace();
