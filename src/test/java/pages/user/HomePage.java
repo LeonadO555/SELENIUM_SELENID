@@ -12,9 +12,6 @@ public class HomePage extends PageBase {
     }
 
     Wait wait;
-
-    @FindBy (xpath = "//div[@class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1s7t6r0']")
-    protected WebElement avatarButton;
     @FindBy (xpath = "//span[normalize-space()='Add course']")
     protected WebElement addACourseButton;
     @FindBy (xpath = "//div[@class=\"container MuiBox-root css-0\"]//a[@role='button']//span")

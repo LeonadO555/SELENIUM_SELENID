@@ -1,7 +1,5 @@
 package tests.e2e.login;
 
-import api.UserApi;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -10,20 +8,17 @@ import pages.user.CoursesPage;
 import pages.user.HomePage;
 import tests.TestBase;
 
-import java.sql.Driver;
-
-public class TestTest extends TestBase {
+public class UserCanFindAllCoursesOfExactProfessorTest extends TestBase {
     MainPage mainPage;
     LoginPage loginPage;
     HomePage homePage;
-
     CoursesPage coursesPage;
-    String email = "roxanne@example.com";
+    String email = "malik@example.com";
     String password = "123456";
-    Driver driver;
+    String professorName = "Roxanne";
 
     @Test
-    public void loginExistingTeacherUser() {
+    public void userCanFindAllCoursesOfExactProfessor() {
         mainPage = new MainPage(app.driver);
         mainPage.clickOnSingInButton();
 
@@ -38,10 +33,12 @@ public class TestTest extends TestBase {
         homePage.goToCoursesPage();
 
         coursesPage = new CoursesPage(app.driver);
-        //coursesPage.waitForLoadingCourses();
+        coursesPage.waitForLoadingCourses();
+        coursesPage.fillSearchInput(professorName);
         coursesPage.clickOnDiscoverMoreButtonIfItIsAvailable();
+        coursesPage.waitForLoadingCourses();
+        coursesPage.checkCoursesPreviewsContainExpectedText(professorName);
+        //Assert.assertTrue(coursesPage.checkCoursesPreviewsContainExpectedText(professorName));
 
-        Assert.assertTrue(coursesPage.clickOnDiscoverMoreButtonIfItIsAvailable());
     }
-
 }
