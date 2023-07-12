@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
@@ -21,16 +22,27 @@ public class CourseDeatailsPage extends HomePage{
     private SelenideElement uploadCourseMaterialTitle = $x("//h3[normalize-space()='Upload course material']");
     private SelenideElement documentNameInput = $x("//input[@id='upload-course-material-form-DocumentName--1971305433']");
     private SelenideElement uploadDocumentField = $x("//input[@id='upload-course-material-form-Document-1880928548']");
-    private SelenideElement uploadButton = $x("//input[@id='upload-course-material-form-Document-1880928548']");
+    private SelenideElement uploadButton = $x("//button[normalize-space()='Upload']");
     private SelenideElement returnHomeButton = $x("//span[normalize-space()='Return home']");
+    private SelenideElement documentsTable = $x("//*[@class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-mfstbn\"]//*[@class=\"content-section\"]");
+    private SelenideElement courseDeatailsSection = $x("//div[@category='List Details']//section");
 
+    public void checkExistingDocument(String courseName){
+        $x("//*[@id=\"course-material-list\"]//h3[contains(text(),"+ courseName +")]").shouldBe(Condition.visible);
+    }
+
+    public void clickOnSelectedDocument(String link){
+        $x("//*[@id=\"course-material-list\"]//div[contains(text(),"+ link +")]").click();
+    }
 
     public void uploadCourseMaterial(String courseName){
         documentNameInput.sendKeys(courseName);
-        uploadDocumentField.sendKeys("files/qa.txt");
+        uploadDocumentField.sendKeys("C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\files\\qa.txt");
         uploadButton.click();
 
     }
+
+
 
 
 
