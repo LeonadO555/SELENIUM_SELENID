@@ -6,8 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MainPage;
-import pages.user.CoursesPage;
-import pages.user.HomePage;
+import pages.account.CoursesPage;
+import pages.account.HomePage;
 import tests.TestBase;
 
 
@@ -20,7 +20,7 @@ public class UserCanViewAllCoursesTest extends TestBase {
     LoginPage loginPage;
 
     @Test
-    public void userCanViewAllCourses () {
+    public void userCanViewAllCourses() {
         userApi = new UserApi();
         Response response = userApi.registrationNewUserApi(201);
         String userEmail = response.jsonPath().getString("email");

@@ -21,17 +21,10 @@ public class Wait {
         wait = new WebDriverWait(driver, TIMEOUT);
         return wait;
     }
+
     public void forVisibility(WebElement element) {
         try {
             setWait().until(ExpectedConditions.visibilityOf(element));
-        } catch (TimeoutException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void forInvisibility(WebElement element) {
-        try {
-            setWait().until(ExpectedConditions.invisibilityOf(element));
         } catch (TimeoutException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package pages.user;
+package pages.account;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -27,6 +27,7 @@ public class CoursesPage extends PageBase {
     String allCoursesOnThePage = "//div[@class='list-action-wrapper']";
 
     public boolean clickOnDiscoverMoreButtonIfItIsAvailable() {
+        waitForLoadingCourses();
         boolean discoverMoreButtonIsAvailable = discoverMoreButton.isDisplayed();
         int oldCountOCourses = driver.findElements(By.xpath(allCoursesOnThePage)).size();
         boolean flag = true;

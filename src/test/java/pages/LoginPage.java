@@ -13,16 +13,16 @@ public class LoginPage extends MainPage {
 
     Wait wait;
 
-    @FindBy (id = "signin")
+    @FindBy(id = "signin")
     protected WebElement loginForm;
 
-    @FindBy (xpath = "//input[@id='sw-form-capture-email-input']")
+    @FindBy(xpath = "//input[@id='sw-form-capture-email-input']")
     protected WebElement emailInput;
 
-    @FindBy (xpath = "//input[@id='sw-form-password-input']")
+    @FindBy(xpath = "//input[@id='sw-form-password-input']")
     protected WebElement passwordInput;
 
-    @FindBy (xpath = "//a[@id='sw-sign-in-submit-btn']")
+    @FindBy(xpath = "//a[@id='sw-sign-in-submit-btn']")
     protected WebElement signInButtonInTheForm;
 
     public void waitForLoading() {

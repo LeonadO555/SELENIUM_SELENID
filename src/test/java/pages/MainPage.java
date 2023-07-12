@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import wait.Wait;
 
-public class MainPage extends PageBase{
+public class MainPage extends PageBase {
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -13,25 +13,25 @@ public class MainPage extends PageBase{
 
     Wait wait;
 
-    @FindBy (xpath = "//a[contains(text(),'Sign in')]")
+    @FindBy(xpath = "//a[contains(text(),'Sign in')]")
     protected WebElement signInButton;
 
-    @FindBy (xpath = "//a[contains(text(),'Sign up ')]")
+    @FindBy(xpath = "//a[contains(text(),'Sign up ')]")
     protected WebElement signUpButton;
 
-    @FindBy (xpath = "//span[normalize-space()='About Us']")
+    @FindBy(xpath = "//span[normalize-space()='About Us']")
     protected WebElement aboutUsTab;
 
-    @FindBy (xpath = "//span[normalize-space()='Courses']")
+    @FindBy(xpath = "//span[normalize-space()='Courses']")
     protected WebElement coursesTab;
 
-    @FindBy (xpath = "//span[normalize-space()='Professors']")
+    @FindBy(xpath = "//span[normalize-space()='Professors']")
     protected WebElement professorsTab;
 
-    @FindBy (xpath = "//img[@class='sw-width-5xs']")
+    @FindBy(xpath = "//img[@class='sw-width-5xs']")
     protected WebElement logoButton;
 
-    @FindBy (xpath = "(//h1[normalize-space()=\"Welcome to NoCode University's Student Portal\"])[1]")
+    @FindBy(xpath = "(//h1[normalize-space()=\"Welcome to NoCode University's Student Portal\"])[1]")
     protected WebElement welcomeToNoCodeTitle;
 
     public void waitForLoading() {

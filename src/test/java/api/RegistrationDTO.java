@@ -13,8 +13,10 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 
 public class RegistrationDTO {
-String full_Name;
-String email;
-String password;
-boolean generate_magic_link;
+
+    String fullName;
+    String email;
+    String password;
+    boolean generate_magic_link;
+
 }

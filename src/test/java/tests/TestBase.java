@@ -11,18 +11,18 @@ public class TestBase {
     protected static ApplicationManager app = new ApplicationManager();
 
     @BeforeMethod
-    public void setupTest(){
+    public void setupTest() {
         app.init();
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         app.stop();
     }
 
     @AfterMethod
-    public void stopTest(ITestResult result){
-        if(result.isSuccess()){
+    public void stopTest(ITestResult result) {
+        if (result.isSuccess()) {
             logger.info("PASSED" + result.getMethod().getMethodName());
         } else {
             logger.info("FAILeD" + result.getMethod().getMethodName());

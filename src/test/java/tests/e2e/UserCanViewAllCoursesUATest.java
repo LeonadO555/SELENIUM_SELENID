@@ -1,19 +1,23 @@
-package tests.e2e.login;
+package tests.e2e;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.MainPage;
 import pages.LoginPage;
-import pages.user.HomePage;
+import pages.MainPage;
+import pages.account.CoursesPage;
+import pages.account.HomePage;
 import tests.TestBase;
 
-public class TeacherLoginTest extends TestBase {
+public class UserCanViewAllCoursesUATest extends TestBase {
     MainPage mainPage;
     LoginPage loginPage;
     HomePage homePage;
+    CoursesPage coursesPage;
     String email = "roxanne@example.com";
     String password = "123456";
 
     @Test
-    public void loginExistingTeacherUser() {
+    public void userCanVewAllCourses() {
         mainPage = new MainPage(app.driver);
         mainPage.clickOnSingInButton();
 
@@ -25,8 +29,13 @@ public class TeacherLoginTest extends TestBase {
 
         homePage = new HomePage(app.driver);
         homePage.waitForLoading();
-        homePage.checkForVisibilityAddCourseButton();
-    }
+        homePage.goToCoursesPage();
 
+        coursesPage = new CoursesPage(app.driver);
+        coursesPage.waitForLoadingCourses();
+        coursesPage.clickOnDiscoverMoreButtonIfItIsAvailable();
+
+        Assert.assertTrue(coursesPage.clickOnDiscoverMoreButtonIfItIsAvailable());
+    }
 
 }
