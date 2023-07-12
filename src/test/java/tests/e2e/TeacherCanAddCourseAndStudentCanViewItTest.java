@@ -48,7 +48,7 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         courseListPage = new CourseListPage();
         courseListPage.searchBox.shouldBe(Condition.visible);
         courseListPage.searchCourseByName(facultyName);
-        courseListPage.getFacultyCourseInTable().shouldBe(Condition.visible);
+        courseListPage.getSearchedFacultyCourseInTable().shouldBe(Condition.visible);
         courseListPage.courseCard.click();
         courseDeatailsPage = new CourseDeatailsPage();
         courseDeatailsPage.getProfessorEmail().shouldHave(Condition.exactText("vse23688@omeie.com"));

@@ -16,7 +16,7 @@ public class CourseListPage extends HomePage{
     public ElementsCollection courseCarts = $$x("//*[@class=\"list-container\"]");
     public ElementsCollection courseTitles = $$x("//*[@class=\"list-container\"]//h3");
     public SelenideElement courseCard = $x("//*[@class=\"list-action-wrapper\"]//a");
-    public SelenideElement facultyCourseInTable = $x("//*[@class=\"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 clickable css-isbt42\"]//h3[contains(text(),\"Enjoy QA with Selenide\")]");
+    public SelenideElement searchedFacultyCourseInTable = $x("//*[@class=\"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 clickable css-isbt42\"]//h3[contains(text(),\"Enjoy QA with Selenide\")]");
 
     //this method with such locator does not work .
     public void checkCourseIsVisible(String facultyName){
