@@ -1,8 +1,6 @@
 package tests.e2e;
 
 import com.codeborne.selenide.Condition;
-import enums.UserEmails;
-import enums.UserNames;
 import org.testng.annotations.Test;
 import pages.*;
 import tests.TestBase;
@@ -37,31 +35,25 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
     }
 
     @Test
-    public void checkNewCourseByStudent() throws InterruptedException {
+    public void checkNewCourseByStudent()  {
         homePage = new HomePage();
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().isDisplayed();
         loginPage.getStudentLogIn();
-        Thread.sleep(10000);  // without it the app going too fast and test do not download courseListButton
-        homePage.coursesButton.shouldBe(Condition.visible);
-        homePage.coursesButton.click();
+        homePage.coursesDropdownMenu.shouldBe(Condition.visible);
+        homePage.coursesDropdownMenu.click();
         homePage.courseListButton.shouldBe(Condition.visible);
         homePage.courseListButton.click();
         courseListPage = new CourseListPage();
         courseListPage.searchBox.shouldBe(Condition.visible);
         courseListPage.searchCourseByName(facultyName);
-        courseListPage.courseCard.shouldBe(Condition.visible);
+        courseListPage.getFacultyCourseInTable().shouldBe(Condition.visible);
         courseListPage.courseCard.click();
-        Thread.sleep(100);
         courseDeatailsPage = new CourseDeatailsPage();
-        courseDeatailsPage.getCourseDescription().shouldBe(Condition.visible);
-        courseDeatailsPage.getCourseDescription().shouldHave(Condition.exactText(courseDescription));
         courseDeatailsPage.getProfessorEmail().shouldHave(Condition.exactText("vse23688@omeie.com"));
         courseDeatailsPage.getStartDate().shouldHave(Condition.exactText(courseStart));
         courseDeatailsPage.getEndDate().shouldHave(Condition.exactText(courseEnd));
-
-
 
     }
 

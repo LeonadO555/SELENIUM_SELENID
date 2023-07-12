@@ -22,7 +22,7 @@ public class HomePage extends PageBase{
     public SelenideElement signInButton = $x("//span[@class='MuiBox-root css-jf8tht']");
     public SelenideElement signUpButton = $x("//div/a[@href='/sign-up']");
     public SelenideElement addCourseButton = $x("//span[normalize-space()='Add course']");
-    public SelenideElement coursesDropdownMenu = $x("//span[normalize-space()='Add course']");
+    public SelenideElement coursesDropdownMenu = $x("//a[@role='button']//*[name()='svg']");
     public SelenideElement courseListButton = $x("//div[@class='MuiBox-root css-0']//a[@href=\"/course-list\"]");
     public SelenideElement viewCoursesButton = $x("//a[normalize-space()='View Courses']");
     public SelenideElement studentDirectoryButton = $x("//span[normalize-space()='Student Directory']");

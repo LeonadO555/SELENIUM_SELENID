@@ -48,14 +48,14 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
         registrationPage.singUpTable.isDisplayed();
-        registrationPage.userRegistration(Roles.STUDENT , UserNames.STUDENT_NONA_SIRBUL, UserEmails.STUDENT_NONA_SIRBUL, homePage.getDefaultPassword());
+        registrationPage.userRegistration(Roles.STUDENT , UserNames.STUDENT_ANNA_BELOVA, UserEmails.STUDENT_ANNA_BELOVA, homePage.getDefaultPassword());
         homePage.avatarButton.isDisplayed();
         homePage.studentDirectoryButton.click();
         studentDirectoryPage = new StudentDirectoryPage();
         studentDirectoryPage.header.isDisplayed();
         studentDirectoryPage.searchBox.sendKeys(studentName);
         studentDirectoryPage.studentList.contains(studentName);
-        studentDirectoryPage.studentList.contains(UserEmails.STUDENT_NONA_SIRBUL);
+        studentDirectoryPage.studentList.contains(UserEmails.STUDENT_ANNA_BELOVA);
     }
 
     @Test
