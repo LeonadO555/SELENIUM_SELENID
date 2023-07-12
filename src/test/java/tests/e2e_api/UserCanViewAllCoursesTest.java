@@ -18,7 +18,6 @@ public class UserCanViewAllCoursesTest extends TestBase {
     HomePage homePage;
     CoursesPage coursesPage;
     LoginPage loginPage;
-    String password = "12345678";
 
     @Test
     public void userCanViewAllCourses () {
@@ -38,8 +37,7 @@ public class UserCanViewAllCoursesTest extends TestBase {
 
         homePage = new HomePage(app.driver);
         homePage.waitForLoading();
-        //homePage.goToCoursesPage();
-        homePage.clickOnViewCoursesButton();
+        homePage.goToCoursesPage();
 
         coursesPage = new CoursesPage(app.driver);
         coursesPage.waitForLoadingCourses();

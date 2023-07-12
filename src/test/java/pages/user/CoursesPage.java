@@ -2,13 +2,8 @@ package pages.user;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageBase;
 import wait.Wait;
-
-import java.time.Duration;
-import java.util.List;
 
 public class CoursesPage extends PageBase {
     WebDriver driver;
@@ -55,32 +50,16 @@ public class CoursesPage extends PageBase {
 
     public void clickOnDiscoverMoreButton() {
         scrollToElement(driver, discoverMoreButton);
-        try{
+        try {
             discoverMoreButton.click();
-        } catch (ElementNotInteractableException e){
+        } catch (ElementNotInteractableException e) {
             e.printStackTrace();
         }
     }
 
-        public void fillSearchInput(String professorName) {
-            fillField(searchInput, professorName);
-        }
-
     public static void scrollToElement(WebDriver driver, WebElement element) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].scrollIntoView({behavior: 'smooth',block: 'center'});", element);
-    }
-
-    public boolean checkCoursesPreviewsContainExpectedText(String expectedText) {
-        List<WebElement> coursesOnThePageList = driver.findElements(By.xpath(allCoursesOnThePage));
-        boolean allElementsContainExpectedText = true;
-        for (WebElement element : coursesOnThePageList) {
-            String elementText = element.getText();
-            if (!elementText.equals(expectedText)) {
-                allElementsContainExpectedText = false;
-                break;
-            }
-        } return allElementsContainExpectedText;
     }
 
 }
