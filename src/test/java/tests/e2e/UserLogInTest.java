@@ -13,7 +13,6 @@ public class UserLogInTest extends TestBase {
     LoginPage loginPage;
     HomePage homePage;
 
-    ProfessorSpotlightPage professorSpotlightPage;
 
     @Test
     public void teacherSuccessfullyLogIn(){

@@ -20,7 +20,11 @@ public class LoginPage extends PageBase{
         passwordInput.sendKeys(defaultPassword);
         signInButton.click();
     }
-
+    public void login (UserEmails userEmails, String password){
+        emailInput.sendKeys(userEmails.value);
+        passwordInput.sendKeys(password);
+        signInButton.click();
+    }
     public void getTeacherLogIn(){
         login(UserEmails.TEACHER_BORIS_RISKER);
     }
