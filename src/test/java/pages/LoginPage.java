@@ -28,4 +28,7 @@ public class LoginPage extends PageBase{
         login(UserEmails.STUDENT_ANNA_BELOVA);
     }
 
+    public void getStudentLogIn2(){
+        login(UserEmails.STUDENT_DIANA_MALIKOVA);
+    }
 }

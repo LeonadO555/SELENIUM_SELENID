@@ -18,4 +18,6 @@ public class RegistrationAndDeleteUserApiTest extends ApiBase {
         userApi.deleteExistingUser(userEmail, 404);
     }
 
+
+
 }

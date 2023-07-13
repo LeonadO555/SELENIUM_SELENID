@@ -27,7 +27,7 @@ public class HomePage extends PageBase{
     public SelenideElement viewCoursesButton = $x("//a[normalize-space()='View Courses']");
     public SelenideElement studentDirectoryButton = $x("//span[normalize-space()='Student Directory']");
     public SelenideElement studentDirectoryAboutUsButton = $x("//span[normalize-space()='Student Directory']");
-    public SelenideElement avatarButton = $x("//img[@class=\"MuiAvatar-img css-1hy9t21\"]");
+    public SelenideElement avatarButton = $x("//div[@category='Header']//header//div//div//div//button[@type='button']");
     private ElementsCollection avatarList = $$x("//ul[@role=\"menu\"]");
     public SelenideElement myProfileButton = $x("//span[normalize-space()='My Profile']");
     public SelenideElement singOutButton = $x("//span[normalize-space()='Sign Out']");

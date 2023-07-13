@@ -18,6 +18,7 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
             "Concise fluent API for tests Stable tests Powerful selectors Simple configuration";
     String courseStart = "August 01 2023";
     String courseEnd = "October 01 2023";
+    String txtDoc = "C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\images\\qa..jpg";
     @Test
     public void addNewCourseAndCheckByStudentItInCoursesList(){
         homePage = new HomePage();
@@ -27,10 +28,10 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         loginPage.getTeacherLogIn();
         homePage.getAddCourseButton().click();
         addNewCoursePage = new AddNewCoursePage();
-        addNewCoursePage.getAddNewCourseTable().isDisplayed();
-        addNewCoursePage.addNewCourse(facultyName, faculty, courseDescription,courseStart,courseEnd );
+        addNewCoursePage.getAddNewCourseTable().shouldBe(Condition.visible);
+        addNewCoursePage.addNewCourse(facultyName, faculty, courseDescription,txtDoc,courseStart,courseEnd );
         courseDeatailsPage = new CourseDeatailsPage();
-        courseDeatailsPage.getReturnHomeButton().isDisplayed();
+        courseDeatailsPage.getReturnHomeButton().shouldBe(Condition.visible);
 
     }
 
@@ -39,7 +40,7 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         homePage = new HomePage();
         homePage.signInButton.click();
         loginPage = new LoginPage();
-        loginPage.getLoginTable().isDisplayed();
+        loginPage.getLoginTable().shouldBe(Condition.visible);
         loginPage.getStudentLogIn();
         homePage.coursesDropdownMenu.shouldBe(Condition.visible);
         homePage.coursesDropdownMenu.click();

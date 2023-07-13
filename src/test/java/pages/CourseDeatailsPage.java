@@ -35,9 +35,9 @@ public class CourseDeatailsPage extends HomePage{
         $x("//*[@id=\"course-material-list\"]//div[contains(text(),"+ link +")]").click();
     }
 
-    public void uploadCourseMaterial(String courseName){
+    public void uploadCourseMaterial(String courseName, String txtDoc){
         documentNameInput.sendKeys(courseName);
-        uploadDocumentField.sendKeys("C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\files\\qa.txt");
+        uploadDocumentField.sendKeys(txtDoc);
         uploadButton.click();
 
     }

@@ -28,13 +28,13 @@ public class AddNewCoursePage extends HomePage{
 
     public List<String> getTitles(){return facultyList.texts();}
 
-    public void addNewCourse(String courseName, String faculty, String courseDescription, String courseStart, String courseEnd){
+    public void addNewCourse(String courseName, String faculty, String courseDescription,String txtDoc, String courseStart, String courseEnd){
         addNewCourseTable.shouldBe(Condition.visible);
         courseNameInput.sendKeys(courseName);
         facultyDropdown.click();
         facultyList.findBy(Condition.exactText(faculty)).click();
         courseDescriptionField.sendKeys(courseDescription);
-        coverPhotoForm.sendKeys("C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\images\\qa..jpg");
+        coverPhotoForm.sendKeys(txtDoc);
         courseStartDate.sendKeys(courseStart);
         courseEndDate.sendKeys(courseEnd);
         addButton.click();

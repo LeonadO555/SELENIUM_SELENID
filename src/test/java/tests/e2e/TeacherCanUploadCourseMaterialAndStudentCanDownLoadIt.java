@@ -20,15 +20,16 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
     String facultyName = "Enjoy QA with Selenide";
     String courseName = "Selenium framework";
     String link = "qa_aa5c466a.txt";
+    String txtDoc = "C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\files\\qa.txt";
 
     @Test
-    public void teacherUploadCourseMaterial() throws InterruptedException {
+    public void teacherUploadCourseMaterial() {
         homePage = new HomePage();
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
         loginPage.getTeacherLogIn();
-        Thread.sleep(1000);
+        homePage.avatarButton.should(Condition.visible);
         homePage.coursesDropdownMenu.shouldBe(Condition.visible);
         homePage.coursesDropdownMenu.click();
         homePage.courseListButton.shouldBe(Condition.visible);
@@ -39,9 +40,8 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
         courseListPage.getSearchedFacultyCourseInTable().shouldBe(Condition.visible);
         courseListPage.courseCard.click();
         courseDeatailsPage = new CourseDeatailsPage();
-        Thread.sleep(1000);
         courseDeatailsPage.getUploadCourseMaterialTitle().shouldBe(Condition.visible);
-        courseDeatailsPage.uploadCourseMaterial(faker.name().title());
+        courseDeatailsPage.uploadCourseMaterial(faker.name().title(), txtDoc);
         courseDeatailsPage.getSearchBox().sendKeys("Selenium");
         courseDeatailsPage.checkExistingDocument("Selenium");
 
@@ -54,7 +54,7 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
         loginPage.getStudentLogIn();
-        Thread.sleep(1000);
+        homePage.avatarButton.should(Condition.visible);
         homePage.coursesDropdownMenu.shouldBe(Condition.visible);
         homePage.coursesDropdownMenu.click();
         homePage.courseListButton.shouldBe(Condition.visible);
@@ -65,7 +65,6 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
         courseListPage.getSearchedFacultyCourseInTable().shouldBe(Condition.visible);
         courseListPage.courseCard.click();
         courseDeatailsPage = new CourseDeatailsPage();
-        Thread.sleep(1000);
         courseDeatailsPage.getCourseMaterialSection().shouldBe(Condition.visible);
         courseDeatailsPage.getSearchBox().sendKeys(courseName);
         courseDeatailsPage.clickOnSelectedDocument(link);
