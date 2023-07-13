@@ -24,6 +24,18 @@ public class RegistrationPage extends PageBase{
     public SelenideElement existUserMessageBlock= $x("//div[@class='error-message signup-error d-flex']");
 
 
+    public boolean checkErrorMessage(String expectedError) {
+        String actualError = emptyRequiredFieldsMessageBlock.getText();
+
+        return actualError.equals(expectedError);
+    }
+
+    public boolean checkExistingUserErrorMessage(String expectedError) {
+        String actualError = existUserMessageBlock.getText();
+
+        return actualError.equals(expectedError);
+    }
+
     public void userRegistration ( Roles role, UserNames name, UserEmails userEmail, String password){
         selectRole(role, roleOption);
         fullNameInput.sendKeys(name.value);

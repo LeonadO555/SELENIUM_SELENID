@@ -17,6 +17,16 @@ public class StudentDirectoryPage extends HomePage{
     public SelenideElement viewProfileButton = $x("//a[normalize-space()='View profile']");
 
 
+    public boolean checkStudentTableContainsUserInfo(String info) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getText().equals(info)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void searchStudentByName(UserNames userName){
         searchBox.shouldBe(Condition.visible);
         searchBox.sendKeys(userName.getValue());

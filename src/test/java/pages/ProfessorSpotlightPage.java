@@ -20,6 +20,16 @@ public class ProfessorSpotlightPage extends HomePage{
     public ElementsCollection professorName = $$x("//body//div[@class='horizontal-list-item']//div[@class='css-1w7j2y6']//h3");
     public SelenideElement viewProfileButton = $x("//a[normalize-space()='View profile']");
 
+
+    public boolean checkProfessorTableContainsUserInfo(String info) {
+        for (int i = 0; i < professorList.size(); i++) {
+            if (professorList.get(i).getText().equals(info)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void searchProfessorByName(UserNames userName){
         searchBox.shouldBe(Condition.visible);
         searchBox.sendKeys(userName.getValue());
