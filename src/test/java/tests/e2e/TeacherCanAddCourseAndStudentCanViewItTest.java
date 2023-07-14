@@ -31,7 +31,7 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         homePage.addCourseButton.click();
         addNewCoursePage = new AddNewCoursePage();
         addNewCoursePage.getAddNewCourseTitle().shouldBe(Condition.visible);
-        addNewCoursePage.addNewCourse(facultyName, faculty, courseDescription,txtDoc );
+        addNewCoursePage.fillFields(facultyName, faculty, courseDescription,txtDoc );
         addNewCoursePage.setStartDataInCalendar("14");
         addNewCoursePage.setEndDataInCalendar("21");
         addNewCoursePage.getAddButton().click();

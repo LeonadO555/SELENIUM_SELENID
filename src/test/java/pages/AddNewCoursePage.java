@@ -28,19 +28,14 @@ public class AddNewCoursePage extends HomePage{
         selectOption(facultyName,facultyDropdown);
     }
 
-    public List<String> getTitles(){return facultyList.texts();}
 
-    public void addNewCourse(String courseName, String faculty, String courseDescription,String txtDoc){
+    public void fillFields(String courseName, String faculty, String courseDescription, String txtDoc){
         addNewCourseTitle.shouldBe(Condition.visible);
         courseNameInput.sendKeys(courseName);
         facultyDropdown.click();
         facultyList.findBy(Condition.exactText(faculty)).click();
         courseDescriptionField.sendKeys(courseDescription);
         coverPhotoForm.sendKeys(txtDoc);
-        //courseStartDate.sendKeys(courseStart);
-        //courseEndDate.sendKeys(courseEnd);
-        //addButton.click();
-
     }
 
     public void setStartDataInCalendar( String data) {
