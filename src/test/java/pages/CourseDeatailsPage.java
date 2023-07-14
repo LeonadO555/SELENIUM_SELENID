@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
 public class CourseDeatailsPage extends HomePage{
+    private SelenideElement professorName = $x("//*[@class=\"item-container-8 sw-text-align-left\"]//h3");
     private ElementsCollection courseDetails = $$x("//div[@class='MuiGrid-root MuiGrid-container css-1cn3yto']");
     private SelenideElement courseDescription = $x("//div[@class='MuiGrid-root MuiGrid-container css-1cn3yto']");
     private SelenideElement facultyTitle = $x("//h3[normalize-space()='Enjoy QA with Selenide']");
@@ -23,7 +24,6 @@ public class CourseDeatailsPage extends HomePage{
     private SelenideElement documentNameInput = $x("//input[@id='upload-course-material-form-DocumentName--1971305433']");
     private SelenideElement uploadDocumentField = $x("//input[@id='upload-course-material-form-Document-1880928548']");
     private SelenideElement uploadButton = $x("//button[normalize-space()='Upload']");
-    private SelenideElement returnHomeButton = $x("//span[normalize-space()='Return home']");
     private SelenideElement documentsTable = $x("//*[@class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-mfstbn\"]//*[@class=\"content-section\"]");
     private SelenideElement courseDeatailsSection = $x("//div[@category='List Details']//section");
 

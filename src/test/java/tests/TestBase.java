@@ -13,7 +13,7 @@ public class TestBase {
     @BeforeMethod
     public void setUp(){
         Configuration.browserCapabilities = new ChromeOptions().addArguments("-remote-allow-origins=*");
-        open("https://jere237.softr.app");
+        open("https://erich416.softr.app/");
         getWebDriver().manage().window().maximize();
     }
 

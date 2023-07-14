@@ -14,25 +14,33 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
     CourseListPage courseListPage;
 
     String faculty = "Engineering";
-    String facultyName = "Enjoy QA with Selenide";
-    String courseDescription = "Selenide is a framework for test automation powered by Selenium WebDriver that brings the following advantages:\n" +
-            "Concise fluent API for tests Stable tests Powerful selectors Simple configuration";
-    String courseStart = "August 01 2023";
-    String courseEnd = "October 01 2023";
-    String txtDoc = "C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\images\\qa..jpg";
+    String facultyName = "Java for QA";
+    String courseDescription = "Java ist eine objektorientierte Programmiersprache und eine eingetragene Marke des Unternehmens Sun Microsystems, welches 2010 von Oracle aufgekauft wurde.";
+    String courseStart = "7/14/2023";
+    String courseEnd = "7/21/2023";
+    String txtDoc = "C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\images\\teacher.jpg";
+    String professorName = "Boris Risker";
     @Test
-    public void addNewCourseAndCheckByStudentItInCoursesList(){
+    public void addNewCourseAndCheckByStudentItInCoursesList() throws InterruptedException {
         homePage = new HomePage();
         homePage.signInButton.click();
         loginPage = new LoginPage();
-        loginPage.getLoginTable().isDisplayed();
+        loginPage.getLoginTable().shouldBe(Condition.visible);
         loginPage.login(UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
-        homePage.getAddCourseButton().click();
+        homePage.avatarButton.shouldBe(Condition.visible);
+        homePage.addCourseButton.click();
         addNewCoursePage = new AddNewCoursePage();
-        addNewCoursePage.getAddNewCourseTable().shouldBe(Condition.visible);
-        addNewCoursePage.addNewCourse(facultyName, faculty, courseDescription,txtDoc,courseStart,courseEnd );
-        courseDeatailsPage = new CourseDeatailsPage();
-        courseDeatailsPage.getReturnHomeButton().shouldBe(Condition.visible);
+        addNewCoursePage.getAddNewCourseTitle().shouldBe(Condition.visible);
+        addNewCoursePage.addNewCourse(facultyName, faculty, courseDescription,txtDoc );
+        addNewCoursePage.setStartDataInCalendar("14");
+        addNewCoursePage.setEndDataInCalendar("21");
+        addNewCoursePage.getAddButton().click();
+        homePage.getCoursesDropdownMenu().click();
+        homePage.getCourseList().click();
+        courseListPage = new CourseListPage();
+        courseListPage.searchBox.shouldBe(Condition.visible);
+        courseListPage.searchCourseByName(facultyName);
+        courseListPage.getSearchedFacultyCourseInTable().shouldBe(Condition.visible);
 
     }
 
@@ -53,7 +61,7 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         courseListPage.getSearchedFacultyCourseInTable().shouldBe(Condition.visible);
         courseListPage.courseCard.click();
         courseDeatailsPage = new CourseDeatailsPage();
-        courseDeatailsPage.getProfessorEmail().shouldHave(Condition.exactText("vse23688@omeie.com"));
+        courseDeatailsPage.getProfessorName().shouldHave(Condition.exactText(professorName));
         courseDeatailsPage.getStartDate().shouldHave(Condition.exactText(courseStart));
         courseDeatailsPage.getEndDate().shouldHave(Condition.exactText(courseEnd));
 
