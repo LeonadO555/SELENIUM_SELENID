@@ -12,8 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class RegistrationDTO {
-    String name;
+    String full_name;
     String email;
     String password;
-    String generate_link;
+    boolean generate_magic_link;
 }

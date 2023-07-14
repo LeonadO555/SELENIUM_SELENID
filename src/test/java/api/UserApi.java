@@ -6,16 +6,17 @@ import io.restassured.response.Response;
 public class UserApi extends ApiBase {
     Response response;
     RegistrationDTO registrationDTO;
-    Faker faker = new Faker();
 
     public UserApi() {
         registrationDTO = new RegistrationDTO();
     }
     public RegistrationDTO randomDataForNewUser(){
-        registrationDTO.setName(faker.name().username());
+        Faker faker = new Faker();
+
+        registrationDTO.setFull_name(faker.name().username());
         registrationDTO.setEmail(faker.internet().safeEmailAddress());
         registrationDTO.setPassword("123456");
-        registrationDTO.setGenerate_link("false");
+        registrationDTO.setGenerate_magic_link(false);
         return registrationDTO;
     }
 
