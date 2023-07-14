@@ -64,23 +64,6 @@ public class RegistrationNewUserUITest extends TestBase {
     }
 
     @Test
-    public void studentRegustrationAndCheckInStudentDirectoryUITest2(){
-        homePage = new HomePage();
-        homePage.signUpButton.click();
-        registrationPage = new RegistrationPage();
-        registrationPage.singUpTable.shouldBe(Condition.visible);
-        registrationPage.userRegistration(Roles.STUDENT , UserNames.STUDENT_VASILY_LISTOV, UserEmails.STUDENT_VASILY_LISTOV, homePage.getDefaultPassword());
-        homePage.avatarButton.shouldBe(Condition.visible);
-        homePage.studentDirectoryButton.click();
-        studentDirectoryPage = new StudentDirectoryPage();
-        studentDirectoryPage.header.shouldBe(Condition.visible);
-        studentDirectoryPage.checkStudentTableContainsUserInfo(studentVasilyListovName);
-        studentDirectoryPage.checkStudentTableContainsUserInfo(studentVasilyEmail);
-
-
-    }
-
-    @Test
     public void teacherRegustrationAndCheckInProfessorDirectoryUITest(){
         homePage = new HomePage();
         homePage.signUpButton.click();

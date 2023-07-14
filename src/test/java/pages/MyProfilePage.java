@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.google.common.base.Enums;
 import enums.Roles;
 import lombok.Getter;
 
@@ -49,8 +48,5 @@ public class MyProfilePage extends HomePage{
         newPasswordInput.sendKeys(newPassword);
         changePasswordButton.click();
     }
-
-
-
 
 }

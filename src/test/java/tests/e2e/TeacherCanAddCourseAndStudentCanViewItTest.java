@@ -1,6 +1,7 @@
 package tests.e2e;
 
 import com.codeborne.selenide.Condition;
+import enums.UserEmails;
 import org.testng.annotations.Test;
 import pages.*;
 import tests.TestBase;
@@ -25,7 +26,7 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().isDisplayed();
-        loginPage.getTeacherLogIn();
+        loginPage.login(UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
         homePage.getAddCourseButton().click();
         addNewCoursePage = new AddNewCoursePage();
         addNewCoursePage.getAddNewCourseTable().shouldBe(Condition.visible);
@@ -41,7 +42,7 @@ public class TeacherCanAddCourseAndStudentCanViewItTest extends TestBase {
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
-        loginPage.getStudentLogIn();
+        loginPage.login(UserEmails.STUDENT_ANNA_BELOVA, homePage.getDefaultPassword());
         homePage.coursesDropdownMenu.shouldBe(Condition.visible);
         homePage.coursesDropdownMenu.click();
         homePage.courseListButton.shouldBe(Condition.visible);

@@ -3,6 +3,7 @@ package tests.e2e;
 import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
 import enums.Roles;
+import enums.UserEmails;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -26,7 +27,7 @@ public class UserCanUpdateOwnProfileTest extends TestBase {
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
-        loginPage.getStudentLogIn2();
+        loginPage.login(UserEmails.STUDENT_DIANA_MALIKOVA, homePage.getDefaultPassword());
         homePage.getAvatarButton().shouldBe(Condition.visible);
         homePage.getAvatarButton().click();
         homePage.getAvatarList().get(0).click();

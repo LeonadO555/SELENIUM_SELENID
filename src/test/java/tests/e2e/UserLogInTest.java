@@ -5,8 +5,6 @@ import enums.UserEmails;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
-import pages.ProfessorSpotlightPage;
-import pages.StudentDirectoryPage;
 import tests.TestBase;
 
 public class UserLogInTest extends TestBase {
@@ -20,7 +18,7 @@ public class UserLogInTest extends TestBase {
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
-        loginPage.login(UserEmails.TEACHER_BORIS_RISKER);
+        loginPage.login(UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
         homePage.avatarButton.shouldBe(Condition.visible);
     }
 
@@ -30,7 +28,7 @@ public class UserLogInTest extends TestBase {
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
-        loginPage.login(UserEmails.STUDENT_ANNA_BELOVA);
+        loginPage.login(UserEmails.STUDENT_ANNA_BELOVA, homePage.getDefaultPassword());
         homePage = new HomePage();
         homePage.avatarButton.shouldBe(Condition.visible);
     }

@@ -2,6 +2,7 @@ package tests.e2e;
 
 import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
+import enums.UserEmails;
 import org.testng.annotations.Test;
 import pages.CourseDeatailsPage;
 import pages.CourseListPage;
@@ -28,7 +29,7 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
-        loginPage.getTeacherLogIn();
+        loginPage.login(UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
         homePage.avatarButton.should(Condition.visible);
         homePage.coursesDropdownMenu.shouldBe(Condition.visible);
         homePage.coursesDropdownMenu.click();
@@ -53,7 +54,7 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
         homePage.signInButton.click();
         loginPage = new LoginPage();
         loginPage.getLoginTable().shouldBe(Condition.visible);
-        loginPage.getStudentLogIn();
+        loginPage.login(UserEmails.STUDENT_ANNA_BELOVA, homePage.getDefaultPassword());
         homePage.avatarButton.should(Condition.visible);
         homePage.coursesDropdownMenu.shouldBe(Condition.visible);
         homePage.coursesDropdownMenu.click();

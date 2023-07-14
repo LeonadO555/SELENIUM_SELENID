@@ -30,17 +30,9 @@ public class ProfessorSpotlightPage extends HomePage{
         return false;
     }
 
-    public void searchProfessorByName(UserNames userName){
-        searchBox.shouldBe(Condition.visible);
-        searchBox.sendKeys(userName.getValue());
-
-    }
-
     public void openViewProfile(UserNames userName){
         professorList.findBy(Condition.exactText(userName.getValue())).click();
         viewProfileButton.click();
     }
-
-
 
 }

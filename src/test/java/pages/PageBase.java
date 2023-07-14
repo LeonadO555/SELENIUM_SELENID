@@ -3,7 +3,6 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import enums.Roles;
-import enums.UserEmails;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -25,7 +24,5 @@ public class PageBase {
         Select select = new Select(selectElement);
         select.selectByVisibleText(optionName);
     }
-
-
 
 }

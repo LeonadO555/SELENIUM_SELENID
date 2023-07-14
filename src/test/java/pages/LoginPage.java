@@ -15,24 +15,10 @@ public class LoginPage extends PageBase{
     private SelenideElement forgotPasswordButton = $x("//a[normalize-space()='Forgot password']");
     private SelenideElement signUpButton = $x("//a[@id='sw-go-to-sign-up-btn']");
 
-    public void login (UserEmails userEmails){
-        emailInput.sendKeys(userEmails.value);
-        passwordInput.sendKeys(defaultPassword);
-        signInButton.click();
-    }
+
     public void login (UserEmails userEmails, String password){
         emailInput.sendKeys(userEmails.value);
         passwordInput.sendKeys(password);
         signInButton.click();
-    }
-    public void getTeacherLogIn(){
-        login(UserEmails.TEACHER_BORIS_RISKER);
-    }
-    public void getStudentLogIn(){
-        login(UserEmails.STUDENT_ANNA_BELOVA);
-    }
-
-    public void getStudentLogIn2(){
-        login(UserEmails.STUDENT_DIANA_MALIKOVA);
     }
 }
