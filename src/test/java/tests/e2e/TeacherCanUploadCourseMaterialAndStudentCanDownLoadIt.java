@@ -18,8 +18,8 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
     CourseListPage courseListPage;
     Faker faker = new Faker();
 
-    String facultyName = "Enjoy QA with Selenide";
-    String courseName = "Selenium framework";
+    String facultyName = "Java for QA";
+    String courseName = "Customer Directives Director";
     String link = "qa_aa5c466a.txt";
     String txtDoc = "C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\files\\qa.txt";
 
@@ -49,7 +49,7 @@ public class TeacherCanUploadCourseMaterialAndStudentCanDownLoadIt extends TestB
     }
 
     @Test
-    public void studentCanViewDocumentsAndDownLoadIt() throws InterruptedException {
+    public void studentCanViewDocumentsAndDownLoadIt() {
         homePage = new HomePage();
         homePage.signInButton.click();
         loginPage = new LoginPage();

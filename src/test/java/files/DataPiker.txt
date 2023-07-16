@@ -1,0 +1,33 @@
+DataPicker
+
+test.describe('User can work with all products', async () => {
+  test('User can open all products', async ({page}, testInfo) => {
+    await loginTestHelper(page, 'roxanne@example.com', '123456');
+    const navigationBar = new NavigationBar(page);
+    const addNewCoursePage = new AddNewCoursePage(page);
+
+    await navigationBar.clickAddCourse();
+
+    await addNewCoursePage.clickFaculty();
+    await addNewCoursePage.choseFaculty(Faculty.LAW);
+
+    await addNewCoursePage.addCourseInput('122', '1221');
+    await addNewCoursePage.setDataInCalendar(DateInput.StartDate, '2');
+    await addNewCoursePage.setDataInCalendar(DateInput.EndDate, '20');
+    await addNewCoursePage.clickAddButton();
+
+    //dataPiker
+    // randomizer start 1-10, end 11-28
+  });
+});
+
+Starta Institute 21  кому  Все 13:02
+async setDataInCalendar(selector: DateInput, data: string) {
+    await this.page.locator(selector).click();
+    await expect(this.calendarData, 'Calendar for start data should be shown!').toBeVisible();
+    await this.calendarData.locator(`text="${data}"`).first().click();
+  }
+export enum DateInput {
+  StartDate = "//input[@id='course-documents-form-Startdate-831849774']",
+  EndDate = "//input[@id='course-documents-form-Enddate-1271684309']",
+}

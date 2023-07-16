@@ -48,7 +48,7 @@ public class RegistrationNewUserUITest extends TestBase {
     }
 
     @Test
-    public void studentRegustrationAndCheckInStudentDirectoryUITest(){
+    public void studentRegistrationAndCheckInStudentDirectoryUITest(){
         homePage = new HomePage();
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
@@ -64,7 +64,7 @@ public class RegistrationNewUserUITest extends TestBase {
     }
 
     @Test
-    public void teacherRegustrationAndCheckInProfessorDirectoryUITest(){
+    public void teacherRegistrationAndCheckInProfessorDirectoryUITest(){
         homePage = new HomePage();
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();

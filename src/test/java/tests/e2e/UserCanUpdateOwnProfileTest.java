@@ -16,7 +16,6 @@ public class UserCanUpdateOwnProfileTest extends TestBase {
     MyProfilePage myProfilePage;
     Faker faker = new Faker();
     String fullName = "Diana Malova";
-    String email = faker.internet().emailAddress();
     String introduce = faker.internet().emailAddress();
     String externalProfileLink = faker.internet().url();
     String major = "Engineering";
@@ -34,7 +33,7 @@ public class UserCanUpdateOwnProfileTest extends TestBase {
         myProfilePage = new MyProfilePage();
         myProfilePage.fullNameInput.shouldBe(Condition.visible);
         myProfilePage.tellMeAboutYourselfTitle.shouldBe(Condition.visible);
-        myProfilePage.updateUserProfile(Roles.STUDENT, fullName, email, introduce,externalProfileLink,major);
+        myProfilePage.updateUserProfile(Roles.STUDENT, fullName, introduce,externalProfileLink,major);
 
     }
 }
