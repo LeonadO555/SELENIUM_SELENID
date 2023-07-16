@@ -7,12 +7,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class TestBase {
     @BeforeMethod
     public void setUp(){
-        Configuration.browserCapabilities = new ChromeOptions().addArguments("-remote-allow-origins=*"); //чтоб открывался браузер
-        open("https://jere237.softr.app"); //открывает нужную страничку
+        Configuration.browserCapabilities = new ChromeOptions().addArguments("-remote-allow-origins=*");
+        open("https://erich416.softr.app/");
+        getWebDriver().manage().window().maximize();
     }
 
 

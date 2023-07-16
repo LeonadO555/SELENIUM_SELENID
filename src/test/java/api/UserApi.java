@@ -13,7 +13,7 @@ public class UserApi extends ApiBase {
         dto.setFull_name(faker.name().username());
         dto.setEmail(faker.internet().safeEmailAddress());
         dto.setPassword("123456");
-        dto.setGenerate_magic_link("false");
+        dto.setGenerate_magic_link(false);
         return dto;
     }
     public Response registrationNewUserApi(Integer code){

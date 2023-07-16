@@ -5,22 +5,27 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
-import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
 public class CourseListPage extends HomePage{
     public SelenideElement searchBox = $x("//input[@id=':r0:']");
-    public ElementsCollection courseTitles = $$x("//div[@class='list-item-wrapper vertical MuiBox-root css-89nl51']//h3");
+    public SelenideElement courseListTitle = $x("//h1[normalize-space()='Our courses']");
+    public ElementsCollection courseCarts = $$x("//*[@class=\"list-container\"]");
+    public ElementsCollection courseTitles = $$x("//*[@class=\"list-container\"]//h3");
+    public SelenideElement courseCard = $x("//*[@class=\"list-action-wrapper\"]//a");
+    public SelenideElement searchedFacultyCourseInTable = $x("//*[@class=\"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 clickable css-isbt42\"]//h3[contains(text(),\"Java for QA\")]");
 
-
-    public List<String>getTitles(){return courseTitles.texts();}
 
     public void searchCourseByName(String name){
         searchBox.shouldBe(Condition.visible);
         searchBox.sendKeys(name);
     }
+
+
+
 
 
 }

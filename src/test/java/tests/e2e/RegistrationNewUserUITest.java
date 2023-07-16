@@ -20,8 +20,12 @@ public class RegistrationNewUserUITest extends TestBase {
     StudentDirectoryPage studentDirectoryPage;
     ProfessorSpotlightPage professorSpotlightPage;
 
-    String studentName = "Nona Sirbul";
-    String teacherName = "Boris Risker";
+    String studentVasilyListovName = "Vasily Listov";
+    String studentAnnaBelovaName = "Anna Belova";
+    String studentAnnaBelovaEmail = "tafida6678@eimatro.com";
+    String studentVasilyEmail = "ysu80133@zslsz.com";
+    String teacherBorisName = "Boris Risker";
+    String teacherBorisEmail = "vse23688@omeie.com";
     String invalidPassword = "1234";
     String errorMessage1 = "Please make sure there are no empty required fields";
     String errorMessage2 = "User by given email already exists.";
@@ -33,44 +37,45 @@ public class RegistrationNewUserUITest extends TestBase {
         String userEmail = response.jsonPath().getString("email");
         String userName = response.jsonPath().getString("full_name");
         homePage = new HomePage();
-        homePage.avatarButton.isDisplayed();
+        homePage.professorsButton.shouldBe(Condition.visible);
         homePage.professorsButton.click();
         professorSpotlightPage = new ProfessorSpotlightPage();
-        professorSpotlightPage.professorList.findBy(Condition.exactText(userName));
-        professorSpotlightPage.professorList.contains(userName);
+        professorSpotlightPage.professorSpotlightTitle.shouldBe(Condition.visible);
+        professorSpotlightPage.checkProfessorTableContainsUserInfo(userName);
+        professorSpotlightPage.checkProfessorTableContainsUserInfo(userEmail);
         userApi.deleteExistingUser(userEmail, 200);
         userApi.deleteExistingUser(userEmail, 404);
     }
 
     @Test
-    public void studentRegustrationAndCheckInStudentDirectoryUITest(){
+    public void studentRegistrationAndCheckInStudentDirectoryUITest(){
         homePage = new HomePage();
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
-        registrationPage.singUpTable.isDisplayed();
-        registrationPage.userRegistration(Roles.STUDENT , UserNames.STUDENT_NONA_SIRBUL, UserEmails.STUDENT_NONA_SIRBUL, homePage.getDefaultPassword());
-        homePage.avatarButton.isDisplayed();
+        registrationPage.singUpTable.shouldBe(Condition.visible);
+        registrationPage.userRegistration(Roles.STUDENT , UserNames.STUDENT_ANNA_BELOVA, UserEmails.STUDENT_ANNA_BELOVA, homePage.getDefaultPassword());
+        homePage.avatarButton.shouldBe(Condition.visible);
         homePage.studentDirectoryButton.click();
         studentDirectoryPage = new StudentDirectoryPage();
-        studentDirectoryPage.header.isDisplayed();
-        studentDirectoryPage.searchBox.sendKeys(studentName);
-        studentDirectoryPage.studentList.contains(studentName);
-        studentDirectoryPage.studentList.contains(UserEmails.STUDENT_NONA_SIRBUL);
+        studentDirectoryPage.header.shouldBe(Condition.visible);
+        studentDirectoryPage.searchBox.sendKeys(studentAnnaBelovaName);
+        studentDirectoryPage.checkStudentTableContainsUserInfo(studentAnnaBelovaName);
+        studentDirectoryPage.checkStudentTableContainsUserInfo(studentAnnaBelovaEmail);
     }
 
     @Test
-    public void teacherRegustrationAndCheckInProfessorDirectoryUITest(){
+    public void teacherRegistrationAndCheckInProfessorDirectoryUITest(){
         homePage = new HomePage();
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
-        registrationPage.singUpTable.isDisplayed();
+        registrationPage.singUpTable.shouldBe(Condition.visible);
         registrationPage.userRegistration(Roles.TEACHER , UserNames.TEACHER_BORIS_RISKER, UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
-        homePage.avatarButton.isDisplayed();
+        homePage.avatarButton.shouldBe(Condition.visible);
         homePage.professorsButton.click();
         professorSpotlightPage = new ProfessorSpotlightPage();
-        professorSpotlightPage.professorList.findBy(Condition.exactText(teacherName));
-        professorSpotlightPage.professorList.contains(teacherName);
-        professorSpotlightPage.professorList.contains(UserEmails.TEACHER_BORIS_RISKER);
+        professorSpotlightPage.checkProfessorTableContainsUserInfo(teacherBorisName);
+        professorSpotlightPage.checkProfessorTableContainsUserInfo(teacherBorisEmail);
+
     }
 
     @Test
@@ -78,10 +83,10 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage = new HomePage();
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
-        registrationPage.singUpTable.isDisplayed();
+        registrationPage.singUpTable.shouldBe(Condition.visible);
         registrationPage.userRegistration(Roles.TEACHER,UserNames.TEACHER_NATALI_VOLKOVA, UserEmails.TEACHER_NATALI_VOLKOVA, invalidPassword);
-        registrationPage.singUpTable.isDisplayed();
-        registrationPage.emptyRequiredFieldsMessageBlock.getOwnText().equals(errorMessage1);
+        registrationPage.singUpTable.shouldBe(Condition.visible);
+        registrationPage.checkErrorMessage(errorMessage1);
 
     }
 
@@ -90,10 +95,9 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage = new HomePage();
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
-        registrationPage.singUpTable.isDisplayed();
+        registrationPage.singUpTable.shouldBe(Condition.visible);
         registrationPage.userRegistration(Roles.STUDENT,UserNames.STUDENT_KRISTINA_MUNTIAN, UserEmails.INVALID_DOMAIN_EMAIL, homePage.getDefaultPassword());
-        registrationPage.singUpTable.isDisplayed();
-        //registrationPage.emptyRequiredFieldsMessageBlock.getOwnText().equals(errorMessage1); // this functional does not work. Was created bug report Defect ID: [2]
+        registrationPage.singUpTable.shouldBe(Condition.visible);
     }
 
     @Test
@@ -101,10 +105,10 @@ public class RegistrationNewUserUITest extends TestBase {
         homePage = new HomePage();
         homePage.signUpButton.click();
         registrationPage = new RegistrationPage();
-        registrationPage.singUpTable.isDisplayed();
+        registrationPage.singUpTable.shouldBe(Condition.visible);
         registrationPage.userRegistration(Roles.TEACHER,UserNames.TEACHER_BORIS_RISKER, UserEmails.TEACHER_BORIS_RISKER, homePage.getDefaultPassword());
-        registrationPage.singUpTable.isDisplayed();
-        registrationPage.existUserMessageBlock.getOwnText().equals(errorMessage2);
+        registrationPage.singUpTable.shouldBe(Condition.visible);
+        registrationPage.checkExistingUserErrorMessage(errorMessage2);
     }
 
 
