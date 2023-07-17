@@ -18,7 +18,7 @@ public class ApplicationManager {
     protected void init() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
-        driver.get("https://jere237.softr.app");
+        driver.get("https://erich416.softr.app");
         driver.manage().window().setSize(new Dimension(1920, 1080));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }

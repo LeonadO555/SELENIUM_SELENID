@@ -9,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 public class ApiBase {
     final String BASE_URI = "https://studio-api.softr.io";
     final String Softr_Api_Key = "khIbAyJIU5CIuh1oDuBRx1s49";
-    final String Softr_Domain = "jere237.softr.app";
+    final String Softr_Domain = "erich416.softr.app";
     RequestSpecification spec = new RequestSpecBuilder()
             .setBaseUri(BASE_URI)
             .setContentType(ContentType.JSON)

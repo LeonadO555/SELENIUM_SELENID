@@ -21,9 +21,6 @@ public class CoursesPage extends PageBase {
     @FindBy(xpath = "//div[@class=\"list-action-wrapper\"]")
     protected WebElement allCourses;
 
-    @FindBy(xpath = "//input[@id=':r0:']")
-    protected WebElement searchInput;
-
     String allCoursesOnThePage = "//div[@class='list-action-wrapper']";
 
     public boolean clickOnDiscoverMoreButtonIfItIsAvailable() {

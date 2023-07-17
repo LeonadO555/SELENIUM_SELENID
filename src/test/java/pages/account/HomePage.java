@@ -12,7 +12,7 @@ public class HomePage extends PageBase {
     }
 
     Wait wait;
-    @FindBy(xpath = "//span[normalize-space()='Add course']")
+    @FindBy(xpath = "//span[@class='MuiBox-root css-jf8tht']")
     protected WebElement addACourseButton;
     @FindBy(xpath = "//div[@class=\"container MuiBox-root css-0\"]//a[@role='button']//span")
     protected WebElement coursesTab;
@@ -35,5 +35,6 @@ public class HomePage extends PageBase {
 
     public void checkForVisibilityAddCourseButton() {
         wait.forVisibility(addACourseButton);
+        addACourseButton.isDisplayed();
     }
 }

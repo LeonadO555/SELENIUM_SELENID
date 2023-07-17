@@ -33,15 +33,9 @@ public class LoginPage extends MainPage {
         wait.forVisibility(signInButtonInTheForm);
     }
 
-    public void fillEmail(String email) {
-        fillField(emailInput, email);
-    }
-
-    public void fillPassword(String password) {
-        fillField(passwordInput, password);
-    }
-
-    public void clickOnTheSignInButtonInTheForm() {
+    public void login(String email, String password){
+        fillInput(emailInput, email);
+        fillInput(passwordInput, password);
         signInButtonInTheForm.click();
     }
 

@@ -8,11 +8,12 @@ public class UserApi extends ApiBase {
     Response response;
     Faker faker = new Faker();
     String email = faker.internet().emailAddress();
+    String fullName = faker.name().firstName();
     String defaultPassword = "12345678";
 
     public RegistrationDTO randomUserData() {
         dto = new RegistrationDTO();
-        dto.setFullName(faker.name().firstName());
+        dto.setFullName(fullName);
         dto.setEmail(email);
         dto.setPassword(defaultPassword);
         dto.setGenerate_magic_link(false);
