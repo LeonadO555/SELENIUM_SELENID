@@ -18,8 +18,6 @@ public class HomePage extends PageBase {
     protected WebElement coursesTab;
     @FindBy(xpath = "//div[@class=\"container MuiBox-root css-0\"]//a[@href='/course-list']")
     protected WebElement coursesListTab;
-    @FindBy(xpath = "//a[@href='/course-list']")
-    protected WebElement viewCoursesButton;
     @FindBy(xpath = "//img[@class='sw-width-5xs']")
     protected WebElement logoButton;
 
