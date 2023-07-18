@@ -26,13 +26,13 @@ public class MyProfilePage extends HomePage{
     public SelenideElement changePasswordButton = $x("//a[@id='sw-change-password-btn']");
 
 
-    public void updateUserProfile(Roles role, String userName, String description, String externalProfileLink, String majorIn ){
+    public void updateUserProfile(Roles role, String userName, String description,String image,  String externalProfileLink, String majorIn ){
         selectRole(role,roleDropdown);
         fullNameInput.clear();
         fullNameInput.sendKeys(userName);
         aboutMeInput.clear();
         aboutMeInput.sendKeys(description);
-        avatarImageInput.sendKeys("C:\\work\\GraduationProject\\SELENIUM_SELENID\\src\\test\\java\\images\\our-students.jpg");
+        avatarImageInput.sendKeys(image);
         externalProfileLinkInput.clear();
         externalProfileLinkInput.sendKeys(externalProfileLink);
         majorInput.clear();

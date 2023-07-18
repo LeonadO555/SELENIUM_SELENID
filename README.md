@@ -1,7 +1,28 @@
-### Create new branch from master , branch should be name :your_name
-### Create new branch from your_name , branch should be name :name test + your name
-### Work on this name test + your name, do only test be one theme
-### After completed tests create pull request base: your_name <- compare: name test + your name
-### Send me link on the pull request
-### When we completed all tests by SELENOID_SELENID describe here description how to deploy a project(example in repository [bank](https://github.com/LeonadO555/bank/blob/master/README.md))
-## THANKS FOR YOUR ATTENTION!!
+## NOCODE UNIVERSITY test automation framework
+
+### Installation
+
+* install [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+* install dependencies:
+    * Go to file build.gradle
+    * Click on the button build(elephant);
+    * Go to IDE settings;
+    * Search "Gradle" in search field
+    * Choose Build Tool -> Gradle;
+    * Choose "Build in run using", "Run test using": IntelliJ IDEA
+      *install [ImageMagic](https://imagemagick.org/script/download.php) version 6 is required
+    * for Mac Apple Silicon:
+        * install imagemagick: `brew install imagemagick@6`
+* install [AllureTestOps](https://docs.qameta.io/allure-testops/getstarted/installation/) lts
+
+### Run tests
+
+* for run all tests `./gradlew testName`
+
+### Install Plugins
+
+* Gradle
+* Indent Rainbow
+* Rainbows Brackets 
+
+
