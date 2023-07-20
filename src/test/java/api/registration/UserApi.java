@@ -10,11 +10,12 @@ public class UserApi extends ApiBase {
     RegistrationDTO dto;
     Response response;
     Faker faker = new Faker();
+    String email = faker.internet().safeEmailAddress();
 
     public RegistrationDTO randomNewUserData(){
         dto = new RegistrationDTO();
         dto.setFull_name(faker.name().lastName());
-        dto.setEmail(faker.internet().safeEmailAddress());
+        dto.setEmail(email);
         dto.setPassword("123456");
         dto.setGenerate_magic_link(false);
         return dto;

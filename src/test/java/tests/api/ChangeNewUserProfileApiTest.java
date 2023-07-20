@@ -1,10 +1,8 @@
 package tests.api;
 
-import api.ApiBase;
 import api.registration.UserApi;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -29,16 +27,15 @@ public class ChangeNewUserProfileApiTest extends TestBase {
             String userEmail = response.jsonPath().getString("email");
             String password = userApi.randomNewUserData().getPassword();
 
-            homePage = new HomePage(driver);
-           // homePage.waitForLoading();
+            homePage = new HomePage(app.driver);
+            homePage.waitForLoading();
             homePage.clickOnSignInButton();
-            loginPage = new LoginPage(driver);
+            loginPage = new LoginPage(app.driver);
             loginPage.waitForLoading();
             loginPage.fillEmailInput(userEmail);
             loginPage.fillPasswordInput(password);
             loginPage.clickOnSignInButton();
             homePage.waitForLoading();
-
 
             homePage.clickOUserAvatarButton();
             homePage.clickOnMyProfileButton();
@@ -46,9 +43,13 @@ public class ChangeNewUserProfileApiTest extends TestBase {
             profilePage.waitForLoading();
             profilePage.selectStudentRole();
             profilePage.fillAboutYourself(faker.lorem().sentences(1).toString());
-            //  profilePage.fillExternalProfile("https://www.google.com");
-            // profilePage.fillMajor("Marketing");
+
+            app.driver.getPageSource();
+            profilePage.fillExternalProfile("https://www.google.com");
+            profilePage.fillMajor("Marketing");
+
             profilePage.clickOnUpdateProfileButton();
+            Assert.assertTrue(profilePage.clickOnUpdateProfileButton());
             profilePage.waitSuccessMsgForLoading();
             Assert.assertTrue(profilePage.isSuccessfulButtonPresent());
 

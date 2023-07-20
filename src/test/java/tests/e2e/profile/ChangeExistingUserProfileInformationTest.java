@@ -1,8 +1,6 @@
 package tests.e2e.profile;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -39,11 +37,14 @@ public class ChangeExistingUserProfileInformationTest extends TestBase {
         profilePage.waitForLoading();
         profilePage.selectStudentRole();
         profilePage.fillAboutYourself(faker.lorem().sentences(1).toString());
-      //  profilePage.fillExternalProfile("https://www.google.com");
-       // profilePage.fillMajor("Marketing");
+
+        app.driver.getPageSource();
+        profilePage.fillExternalProfile("https://www.google.com");
+        profilePage.fillMajor("Marketing");
+
         profilePage.clickOnUpdateProfileButton();
+        Assert.assertTrue(profilePage.clickOnUpdateProfileButton());
         profilePage.waitSuccessMsgForLoading();
         Assert.assertTrue(profilePage.isSuccessfulButtonPresent());
-
     }
 }

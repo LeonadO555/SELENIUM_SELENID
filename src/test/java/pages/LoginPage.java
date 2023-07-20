@@ -10,9 +10,6 @@ public class LoginPage extends PageBase{
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@id='signin']")
-    protected WebElement signInForm;
-
     @FindBy(xpath = "//input[@type='email']")
     protected WebElement emailInput;
 
@@ -24,9 +21,6 @@ public class LoginPage extends PageBase{
 
     @FindBy(xpath = "//a[normalize-space()='Forgot password']")
     protected WebElement forgotPasswordButton;
-
-    @FindBy(xpath = "//a[@id='sw-go-to-sign-up-btn']")
-    protected WebElement signUpButton;
 
     @FindBy(xpath = "//a[normalize-space()='']//img")
     protected WebElement logoButton;
@@ -42,29 +36,14 @@ public class LoginPage extends PageBase{
     }
 
     public void fillEmailInput(String text){
-        emailInput.click();
-        emailInput.clear();
-        emailInput.sendKeys(text);
+       fillInput(emailInput, text);
     }
 
     public void fillPasswordInput(String text){
-        passwordInput.click();
-        passwordInput.clear();
-        passwordInput.sendKeys(text);
+        fillInput(passwordInput, text);
     }
 
     public void clickOnSignInButton(){
         signInButton.click();
     }
-
-    public void clickOnSignUpButton(){
-        signUpButton.click();
-    }
-
-    public void clickOnForgotPasswordButton(){
-        forgotPasswordButton.click();
-    }
-
-
-
 }
