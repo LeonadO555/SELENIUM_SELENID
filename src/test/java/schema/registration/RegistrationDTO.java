@@ -6,9 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@AllArgsConstructor
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class RegistrationDTO {
@@ -16,4 +16,6 @@ public class RegistrationDTO {
     String full_name;
     String email;
     String password;
+    Boolean generate_magic_link;
+
 }

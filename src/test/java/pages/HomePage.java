@@ -13,71 +13,35 @@ public class HomePage extends PageBase{
     @FindBy(xpath = "//a[@class='navbar-brand']//img")
     protected WebElement logoButton;
 
-    @FindBy(xpath = "//*[@type='button']//img")
+    @FindBy(xpath = "//button[@type='button']//div")
     protected WebElement userAvatarButton;
 
     @FindBy(xpath = "//a[@href='/user-profile']")
     protected WebElement myProfileButton;
 
-    @FindBy(xpath = "//a[@href='#']")
-    protected WebElement signOutButton;
-
-    @FindBy(xpath = "//a[@role='button']")
-    protected WebElement courseButton;
+    @FindBy(xpath = "//div[@class='container MuiBox-root css-0']//*[@href='/sign-in']")
+    protected WebElement signInButton;
 
     @FindBy(xpath = "//a[@href='#teacher-spotlight-heading']")
     protected WebElement professorsSpotlightButton;
-
-    @FindBy(xpath = "//div[@class='MuiToolbar-root MuiToolbar-dense css-1jmxd2t']//a[@href='/student-directory']")
-    protected WebElement studentDirectoryButton;
-
-    @FindBy(xpath = "//div[@class='inbox-list-container']")
-    protected WebElement professorsSpotlightForm;
-
-    @FindBy(xpath = "//div[@class='list-container']")
-    protected WebElement coursesList;
 
 
     public void waitForLoading(){
         wait = new Wait(driver);
         wait.forVisibility(logoButton);
-        wait.forVisibility(userAvatarButton);
-        wait.forVisibility(courseButton);
         wait.forVisibility(professorsSpotlightButton);
-        wait.forVisibility(studentDirectoryButton);
-    }
-
-    public void clickOnLogoButton(){
-        logoButton.click();
     }
 
     public void clickOUserAvatarButton(){
-        userAvatarButton.click();
+        click(userAvatarButton);
     }
 
+    public void clickOnSignInButton(){
+        wait.forVisibility(signInButton);
+        click(signInButton);
+    }
     public void clickOnMyProfileButton(){
         myProfileButton.click();
-    }
-
-    public void clickOnSignOutButton(){
-        signOutButton.click();
-    }
-
-    public void clickOnCourseButton(){
-        courseButton.click();
-    }
-
-    public void clickOnProfessorsSpotlightButton(){
-        professorsSpotlightButton.click();
-    }
-
-    public void clickOnStudentDirectoryButton(){
-        studentDirectoryButton.click();
-    }
-
-
-    public void clickOnCoursesList(){
-        coursesList.click();
     }
 
 }

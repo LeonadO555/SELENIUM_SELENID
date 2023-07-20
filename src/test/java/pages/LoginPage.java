@@ -10,14 +10,11 @@ public class LoginPage extends PageBase{
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@id='signin']")
-    protected WebElement signInForm;
-
     @FindBy(xpath = "//input[@type='email']")
-    protected WebElement emailField;
+    protected WebElement emailInput;
 
     @FindBy(xpath = "//input[@type='password']")
-    protected WebElement passwordField;
+    protected WebElement passwordInput;
 
     @FindBy(xpath = "//a[@id='sw-sign-in-submit-btn']")
     protected WebElement signInButton;
@@ -25,47 +22,28 @@ public class LoginPage extends PageBase{
     @FindBy(xpath = "//a[normalize-space()='Forgot password']")
     protected WebElement forgotPasswordButton;
 
-    @FindBy(xpath = "//a[@id='sw-go-to-sign-up-btn']")
-    protected WebElement signUpButton;
-
     @FindBy(xpath = "//a[normalize-space()='']//img")
     protected WebElement logoButton;
 
     public void waitForLoading(){
         wait = new Wait(driver);
-        wait.forVisibility(signInForm);
-        wait.forVisibility(emailField);
-        wait.forVisibility(passwordField);
+        wait.forVisibility(emailInput);
+        wait.forVisibility(passwordInput);
         wait.forVisibility(signInButton);
         wait.forVisibility(forgotPasswordButton);
-        wait.forVisibility(signUpButton);
         wait.forVisibility(logoButton);
 
     }
 
     public void fillEmailInput(String text){
-        emailField.click();
-        emailField.clear();
-        emailField.sendKeys(text);
+       fillInput(emailInput, text);
     }
 
     public void fillPasswordInput(String text){
-        passwordField.click();
-        passwordField.clear();
-        passwordField.sendKeys(text);
+        fillInput(passwordInput, text);
     }
 
     public void clickOnSignInButton(){
         signInButton.click();
     }
-
-    public void clickOnSignUpButton(){
-        signUpButton.click();
-    }
-
-    public void clickOnForgotPasswordButton(){
-        forgotPasswordButton.click();
-    }
-
-
 }
